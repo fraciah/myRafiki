@@ -1,0 +1,110 @@
+$primary-color: rgb(164, 164, 232);
+$primary-color-hover: rgb(123, 123, 207);
+$secondary-color: rgb(197, 196, 196);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+    color: white;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    padding: 0.4rem 0.6rem;
+    background-color: $primary-color;
+
+    &:hover {
+        background-color: $primary-color-hover;
+    }
+}
+
+.input {
+    border-radius: 5px;
+    padding: 0.5rem;
+    border: 1px solid $secondary-color;
+    outline: none;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 1rem;
+    background-color: $primary-color;
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .auth-box {
+        display: flex;
+        width: 60vw;
+        justify-content: center;
+        align-items: center;
+        background-color: pink;
+        
+        .auth-box-left {
+            width: 50%;
+            
+            img {
+                width: 100%;
+                // max-height: 100%;
+            }
+        }
+        .auth-box-right {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: white;
+            padding: 2rem;
+
+            .reg-title {
+                font-size: 2rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+            .error-message {
+                color: red;
+                font-size: 0.8rem;
+            }
+
+            .auth-input {
+                width: 100%;
+            }
+
+            .phoneNo-cont {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.4rem;
+                width: 100%;
+            }
+
+            .register {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+            .redirect-auth {
+                width: 100%;
+                display: flex;
+                align-items: flex-start;
+
+                span {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
