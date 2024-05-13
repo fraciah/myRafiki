@@ -1,8 +1,10 @@
+import Navbar from "../layouts/Navbar";
 
 const Home = () => {
   return (
     <div>
-      HOME
+      <Navbar />
+      HOME content with register and login buttons
     </div>
   )
 }
