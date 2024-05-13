@@ -2,10 +2,11 @@ import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { RecaptchaVerifier, signInWithPhoneNumber, createUserWithEmailAndPassword } from "firebase/auth";
+import { linkWithCredential, EmailAuthProvider } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
-import plc from "../../assets/images/plc.jpg";
 import { useForm, Controller } from "react-hook-form";
+import plc from "../../assets/images/plc.jpg";
 
 const Register = () => {
     const [user, setUser] = useState(null);
@@ -48,16 +49,24 @@ const Register = () => {
                 setError("Please verify phone number")
                 return;
             }
-            const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password);
-            console.log(userCredential);
+            // const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password);
+            // console.log(userCredential);
+            const credential = EmailAuthProvider.credential(userData.email, userData.password);
+            //linking the credential to the current user
+            await linkWithCredential(auth.currentUser, credential);
 
             console.log("User registered successfully");
+            console.log("smsAPI",userData.phone)
             navigate("/login");
         } 
         catch (error) {
             if(error.code === "auth/email-already-in-use"){
                 console.log("Email already exists");
                 setError(error.code);
+            }
+            else if(error.code === "auth/provider-already-linked"){
+                console.log("The provider is already linked to another account");
+                setError("The provider is already linked to another account");
             }
             else{
                 console.log("!register",error);
