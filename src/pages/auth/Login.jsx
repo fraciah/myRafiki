@@ -61,7 +61,7 @@ const Login = () => {
                 />
           <button className="btn">Login</button>
           <div className="redirect-auth">
-              <p>Not registered? <span onClick={() => navigate("/")}>Register here</span></p>
+              <p>Not registered? <span onClick={() => navigate("/register")}>Register here</span></p>
           </div>
         </form>
       </div>
