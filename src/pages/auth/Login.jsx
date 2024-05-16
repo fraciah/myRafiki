@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import plc from "../../assets/images/plc.jpg";
@@ -19,7 +19,7 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, userData.email, userData.password);
       console.log(userCredential);
-      navigate("/chats");
+      navigate("/posts");
     } 
     catch (error) {
       console.log(error);
@@ -35,7 +35,7 @@ const Login = () => {
 
   return (
     <div className="auth-container">
-      <div className="title">myRafiki</div>
+      <Link to="/" className="title">myRafiki</Link>
       <div className="auth-box">
         <div className="auth-box-left">
           <img src={plc} alt="img" />

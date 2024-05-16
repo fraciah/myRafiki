@@ -1,12 +1,17 @@
-import Navbar from "../layouts/Navbar";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../layouts/Navbar";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Navbar />
-      HOME content with register and login buttons
+      <div>HOME</div>
+      <button onClick={() => navigate("/register")}>Register</button>
+      <button onClick={() => navigate("/login")}>Login</button>
     </div>
   )
 }
 
-export default Home
+export default Home;

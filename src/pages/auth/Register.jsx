@@ -4,7 +4,7 @@ import "react-phone-input-2/lib/style.css";
 import { RecaptchaVerifier, signInWithPhoneNumber, createUserWithEmailAndPassword } from "firebase/auth";
 import { linkWithCredential, EmailAuthProvider } from "firebase/auth";
 import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import plc from "../../assets/images/plc.jpg";
 
@@ -77,7 +77,7 @@ const Register = () => {
 
   return (
     <div className="auth-container">
-        <div className="title">myRafiki</div>
+        <Link to="/" className="title">myRafiki</Link>
         <div className="auth-box">
             <div className="auth-box-left">
                 <img src={plc} alt="img" />

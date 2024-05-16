@@ -1,7 +1,11 @@
 import Home from "../pages/web/Home";
 import Register from "../pages/auth/Register";
 import Login from "../pages/auth/Login";
-import Chat from "../pages/web/Chats";
+import MyPosts from "../pages/web/MyPosts";
+import NewPost from "../pages/web/NewPost";
+import Posts from "../pages/web/Posts";
+import Videos from "../pages/web/Videos";
+import Articles from "../pages/web/Articles";
 import Error404 from "../pages/error/Error404";
 
 export default [
@@ -18,8 +22,24 @@ export default [
         page: Login,
     },
     {
-        path: "/chats",
-        page: Chat,
+        path: "/posts",
+        page: Posts,
+    },
+    {
+        path: "/myposts",
+        page: MyPosts,
+    },
+    {
+        path: "/newpost",
+        page: NewPost,
+    },
+    {
+        path: "/articles",
+        page: Articles,
+    },
+    {
+        path: "/videos",
+        page: Videos,
     },
     {
         path: "*",
