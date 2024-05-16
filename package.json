@@ -13,12 +13,15 @@
     "@ant-design/icons": "^5.3.7",
     "axios": "^1.6.8",
     "firebase": "^10.11.1",
+    "lucide-react": "^0.378.0",
     "react": "^18.2.0",
     "react-chat-engine": "^1.11.28",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.4",
     "react-phone-input-2": "^2.15.1",
+    "react-quill": "^2.0.0",
     "react-router-dom": "^6.23.1",
+    "react-toastify": "^10.0.5",
     "sass": "^1.77.1"
   },
   "devDependencies": {
