@@ -61,7 +61,7 @@ const NewPost = () => {
   return (
     <>
     <Navbar />
-    <div className="new-post-container">
+    <div className="post-container">
         <button 
             onClick={handleSubmit} 
             className="btn">

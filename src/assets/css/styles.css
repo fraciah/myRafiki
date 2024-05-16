@@ -146,15 +146,15 @@
   cursor: pointer;
 }
 
-.new-post-container {
+.post-container {
   width: 80%;
   margin: 0 auto;
   padding: 1rem 0;
 }
-.new-post-container .new-post-content {
+.post-container .new-post-content {
   margin: 1rem 0;
 }
-.new-post-container .new-post-content .title {
+.post-container .new-post-content .title {
   border: none;
   outline: none;
   font-size: 2rem;
