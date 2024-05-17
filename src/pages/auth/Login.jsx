@@ -19,7 +19,7 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, userData.email, userData.password);
       console.log(userCredential);
-      navigate("/posts");
+      navigate("/stories");
     } 
     catch (error) {
       console.log(error);

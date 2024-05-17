@@ -7,7 +7,7 @@ import { db } from '../../firebase';
 import useAuth from '../../hooks/useAuth';
 import Navbar from "../../layouts/Navbar";
 
-const NewPost = () => {
+const NewStory = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
@@ -33,7 +33,7 @@ const NewPost = () => {
             // console.log(title, story);
             setError("");
 
-            //add post to firestore
+            //add story to firestore
             const collections = collection(db, "myPosts");
             await addDoc(collections, {
                 userID : user.uid,
@@ -44,10 +44,10 @@ const NewPost = () => {
                 createdAt: Date.now(),
                 pageViews: 0,
             });
-            alert("Post added successfully");
+            alert("Story added successfully");
             setTitle("");
             setStory("");
-            navigate("/myposts");
+            navigate("/mystories");
         }
         catch(error){
             setError(error.message)
@@ -61,14 +61,14 @@ const NewPost = () => {
   return (
     <>
     <Navbar />
-    <div className="post-container">
+    <div className="story-container">
         <button 
             onClick={handleSubmit} 
             className="btn">
                 {loading ? "Loading..." : "Post"}
         </button>
         {error && <div className="error-message">{error}</div>}
-        <div className="new-post-content">
+        <div className="new-story-content">
             <input 
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -87,4 +87,4 @@ const NewPost = () => {
   )
 }
 
-export default NewPost;
+export default NewStory;

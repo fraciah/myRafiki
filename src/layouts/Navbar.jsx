@@ -16,8 +16,8 @@ const Navbar = () => {
     <nav className="navbar">
         <div>myRafiki</div>
         <div className="nav-items">
-          <Link to={user ? "/posts" : "/"}>Posts</Link>
-          <Link to={user ? "/myposts" : "/"}>My Posts</Link>
+          <Link to={user ? "/stories" : "/"}>Stories</Link>
+          <Link to={user ? "/mystories" : "/"}>My Stories</Link>
           <Link to="/articles">Articles</Link>
           <Link to="/videos">Videos</Link>
         </div>

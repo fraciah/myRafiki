@@ -164,12 +164,13 @@ $secondary-color: rgb(197, 196, 196);
     }
 }
 
-.post-container {
+.story-container {
     width: 80%;
     margin: 0 auto;
     padding: 1rem 0;
+    // background-color: pink;
     
-    .new-post-content{
+    .new-story-content{
         margin: 1rem 0;
 
         .title {

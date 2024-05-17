@@ -1,9 +1,9 @@
 import Home from "../pages/web/Home";
 import Register from "../pages/auth/Register";
 import Login from "../pages/auth/Login";
-import MyPosts from "../pages/web/MyPosts";
-import NewPost from "../pages/web/NewPost";
-import Posts from "../pages/web/Posts";
+import MyStories from "../pages/web/MyStories";
+import NewStory from "../pages/web/NewStory";
+import Stories from "../pages/web/Stories";
 import Videos from "../pages/web/Videos";
 import Articles from "../pages/web/Articles";
 import Error404 from "../pages/error/Error404";
@@ -22,16 +22,16 @@ export default [
         page: Login,
     },
     {
-        path: "/posts",
-        page: Posts,
+        path: "/stories",
+        page: Stories,
     },
     {
-        path: "/myposts",
-        page: MyPosts,
+        path: "/mystories",
+        page: MyStories,
     },
     {
-        path: "/newpost",
-        page: NewPost,
+        path: "/newstory",
+        page: NewStory,
     },
     {
         path: "/articles",
