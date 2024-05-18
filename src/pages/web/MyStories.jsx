@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Navbar from "../../layouts/Navbar";
 import useFetch from "../../hooks/useFetch";
@@ -11,7 +11,6 @@ const MyStories = () => {
   
   const myStories = data && data?.filter(story => story.userID === user.uid);
   console.log(myStories);
-  // console.log(data);
   
   return (
     <div>
@@ -21,14 +20,12 @@ const MyStories = () => {
         loading? 
         <Loading /> :
         <div className="story-container">
-          {myStories?.map((story, storyIndex) => (
-            <div key={storyIndex} className="story">
+          {myStories?.map((story) => (
+            <Link to={`/viewstory/${story.id}`} key={story.id} className="story">
               <h2>{story.title}</h2>
               <p>{story.story}</p>
-              <p>Posted by: {story.userEmail}</p>
-              <p>Phone: {story.userPhone}</p>
               <p>Views: {story.pageViews}</p>
-            </div>
+            </Link>
           ))}
         </div>
         }
