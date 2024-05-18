@@ -15,14 +15,18 @@ const MyStories = () => {
   return (
     <div>
       <Navbar />
-      <button onClick={() => navigate("/newstory")}>Add a story</button>
       {
         loading? 
         <Loading /> :
         <div className="story-container">
+          <button 
+            className="btn"
+            onClick={() => navigate("/newstory")}>
+              Add a story
+          </button>
           {myStories?.map((story) => (
             <Link to={`/viewstory/${story.id}`} key={story.id} className="story">
-              <h2>{story.title}</h2>
+              <h3>{story.title}</h3>
               <p>{story.story}</p>
               <p>Views: {story.pageViews}</p>
             </Link>

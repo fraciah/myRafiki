@@ -7,6 +7,7 @@
 }
 
 .btn {
+  align-self: flex-start;
   border: none;
   cursor: pointer;
   color: white;
@@ -42,6 +43,13 @@
 .navbar .nav-items {
   display: flex;
   gap: 1rem;
+}
+.navbar .nav-items .nav-item {
+  color: white;
+  text-decoration: none;
+}
+.navbar .nav-items .nav-item:hover {
+  color: gray;
 }
 
 .loading-container {
@@ -153,10 +161,26 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 1rem;
+}
+.story-container .story-header {
+  display: flex;
+  justify-content: space-between;
+}
+.story-container .story-header .insights {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.story-container .story-header .insights .insight-icon {
+  display: flex;
+  align-items: center;
 }
 .story-container .story {
+  text-decoration: none;
   padding: 1rem;
   border-radius: 10px;
+  color: black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .story-container .new-story-content {
@@ -166,4 +190,56 @@
   border: none;
   outline: none;
   font-size: 2rem;
+  width: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.overlay .insights-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  z-index: 2;
+  width: 60%;
+  height: 60%;
+  border-radius: 0.3rem;
+  background-color: white;
+}
+.overlay .insights-container .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.overlay .insights-container .insight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+  padding-top: 1rem;
+}
+.overlay .insights-container .insight-content .insight-input {
+  flex-grow: 1;
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  margin-top: 10px;
+  outline: none;
+  border: 1px solid rgb(197, 196, 196);
+}
+.overlay .insights-container .insight-content .insight-actions {
+  display: flex;
+  gap: 1rem;
 }/*# sourceMappingURL=styles.css.map */

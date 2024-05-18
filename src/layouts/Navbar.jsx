@@ -16,10 +16,10 @@ const Navbar = () => {
     <nav className="navbar">
         <div>myRafiki</div>
         <div className="nav-items">
-          <Link to={user ? "/stories" : "/"}>Stories</Link>
-          <Link to={user ? "/mystories" : "/"}>My Stories</Link>
-          <Link to="/articles">Articles</Link>
-          <Link to="/videos">Videos</Link>
+          <Link className="nav-item" to={user ? "/stories" : "/"}>Stories</Link>
+          <Link className="nav-item" to={user ? "/mystories" : "/"}>My Stories</Link>
+          <Link className="nav-item" to="/articles">Articles</Link>
+          <Link className="nav-item" to="/videos">Videos</Link>
         </div>
         {user && <div onClick={logOut}>Logout</div>}
     </nav>

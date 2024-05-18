@@ -65,7 +65,7 @@ const NewStory = () => {
         <button 
             onClick={handleSubmit} 
             className="btn">
-                {loading ? "Loading..." : "Post"}
+                {loading ? "Loading..." : "Share"}
         </button>
         {error && <div className="error-message">{error}</div>}
         <div className="new-story-content">
