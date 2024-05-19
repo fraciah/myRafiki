@@ -16,7 +16,7 @@ const MyStories = () => {
       {
         loading? 
         <Loading /> :
-        <div className="story-container">
+        <div className="page-container">
           <button 
             className="btn"
             onClick={() => navigate("/newstory")}>

@@ -14,15 +14,17 @@ const Insight = ({setShowInsight, storyId}) => {
             if(insight === ""){
                 setError("Kindly enter your insights");
             }
-            const insightRef = collection(db, "myPosts", storyId, "insights");
-            await addDoc(insightRef, {
-                insightText: insight,
-                userID: user.uid,
-                createdAt: Date.now(),
-            });
-            alert("Insight added successfully");
-            setInsight("");
-            setShowInsight(false)
+            else{
+                const insightRef = collection(db, "myPosts", storyId, "insights");
+                await addDoc(insightRef, {
+                    insightText: insight,
+                    userID: user.uid,
+                    createdAt: Date.now(),
+                });
+                alert("Insight added successfully");
+                setInsight("");
+                setShowInsight(false);
+            }
         }
         catch(error){
             setError(error.message);

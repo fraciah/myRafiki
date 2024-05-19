@@ -59,7 +59,7 @@ const NewStory = () => {
 
   return (
     <>
-    <div className="story-container">
+    <div className="page-container">
         <button 
             onClick={handleSubmit} 
             className="btn">

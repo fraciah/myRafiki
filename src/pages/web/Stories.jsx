@@ -12,7 +12,7 @@ const Stories = () => {
         {
           loading? 
           <Loading /> :
-          <div className="story-container">
+          <div className="page-container">
             <div>Stories</div>
             {data?.map((story) => (
               <Link to={`/viewstory/${story.id}`} key={story.id} className="story">

@@ -174,7 +174,7 @@ $secondary-color: rgb(197, 196, 196);
     }
 }
 
-.story-container {
+.page-container {
     width: 80%;
     margin: 0 auto;
     padding: 1rem 0;
@@ -215,6 +215,17 @@ $secondary-color: rgb(197, 196, 196);
             outline: none;
             font-size: 2rem;
             width: 100%;
+        }
+    }
+    .insights-section {
+        // background-color: pink;
+
+        .insights-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .insight {
+            margin: 1rem 0;
         }
     }
 }
