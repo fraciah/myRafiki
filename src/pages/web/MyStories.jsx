@@ -5,7 +5,7 @@ import Loading from "../../components/Loading";
 
 const MyStories = () => {
   const navigate = useNavigate();
-  const { data, loading } = useFetch("myPosts");
+  const { data, loading } = useFetch("stories");
   const { user } = useAuth();
   
   const myStories = data && data?.filter(story => story.userID === user.uid);

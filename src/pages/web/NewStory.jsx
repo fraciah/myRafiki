@@ -29,17 +29,18 @@ const NewStory = () => {
                 setError("Story must be at least 50 characters");
                 return;
             }
-            // console.log(title, story);
             setError("");
 
+            const storyWithoutPTags = story.replace(/<\/?p>/g, '');
+
             //add story to firestore
-            const collections = collection(db, "myPosts");
+            const collections = collection(db, "stories");
             await addDoc(collections, {
                 userID : user.uid,
                 userEmail: user.email,
                 userPhone: user.phoneNumber,
                 title: title,  
-                story: story,
+                story: storyWithoutPTags,
                 createdAt: Date.now(),
                 pageViews: 0,
             });

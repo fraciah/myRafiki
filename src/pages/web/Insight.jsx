@@ -17,7 +17,7 @@ const Insight = ({setShowInsight, storyId, insightId, initialInsightText}) => {
             else{
                 if(insightId){
                     //update insight
-                    const ref = doc(db, "myPosts", storyId, "insights", insightId);
+                    const ref = doc(db, "stories", storyId, "insights", insightId);
                     await updateDoc(ref, {
                         insightText: insight,
                         updatedAt: Date.now(),
@@ -26,7 +26,7 @@ const Insight = ({setShowInsight, storyId, insightId, initialInsightText}) => {
                 }
                 else{
                     //create insight
-                    const insightRef = collection(db, "myPosts", storyId, "insights");
+                    const insightRef = collection(db, "stories", storyId, "insights");
                     await addDoc(insightRef, {
                         insightText: insight,
                         userID: user.uid,
