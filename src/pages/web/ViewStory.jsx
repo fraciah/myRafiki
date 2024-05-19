@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 import { useState } from "react";
 import Insight from "./Insight";
 import { MessageCircle } from "lucide-react";
+import useSingleFetch from "../../hooks/useSingleFetch";
 
 const ViewStory = () => {
   const [showInsight, setShowInsight] = useState(false); 
@@ -11,6 +12,9 @@ const ViewStory = () => {
   const { data, loading } = useFetch("myPosts");
   const { user } = useAuth();
   const story = data && data.find(story => story.id === id);
+
+  const { data: insights, loading:insightsLoading } = useSingleFetch("myPosts", id, "insights");
+  console.log(insights)
 
   return (
     <div>
@@ -38,8 +42,22 @@ const ViewStory = () => {
         )}
         <div>
           <div>Insights</div>
-          {/* no insights */}
-          {/* show insights */}
+          {insightsLoading? 
+          "Loading..." :
+          (insights && insights.length === 0? (
+            <p>This story has no insights</p>
+          ) : 
+          (
+            insights?.map(insight => (
+              <div 
+                key={insight.id}
+                className="insight">
+                <div>{insight.insightText}</div>
+                <div>{insight.createdAt}</div>
+              </div>
+            ))
+          ))
+          }
         </div>
       </div>
     </div>
