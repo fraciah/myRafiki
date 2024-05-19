@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import plc from "../../assets/images/plc.jpg";
@@ -35,7 +35,6 @@ const Login = () => {
 
   return (
     <div className="auth-container">
-      <Link to="/" className="title">myRafiki</Link>
       <div className="auth-box">
         <div className="auth-box-left">
           <img src={plc} alt="img" />

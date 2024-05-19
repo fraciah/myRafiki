@@ -2,7 +2,6 @@ import useAuth from "../../hooks/useAuth";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { useState } from "react";
-import Navbar from "../../layouts/Navbar";
 import Insight from "./Insight";
 import { MessageCircle } from "lucide-react";
 
@@ -15,9 +14,8 @@ const ViewStory = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="story-container">
-        {showInsight && <Insight setShowInsight={setShowInsight} />}
+        {showInsight && <Insight setShowInsight={setShowInsight} storyId={id}/>}
         <div className="story-header">
           <h2>{story?.title}</h2>
           <div 

@@ -1,6 +1,7 @@
 import Home from "../pages/web/Home";
 import Register from "../pages/auth/Register";
 import Login from "../pages/auth/Login";
+import About from "../pages/web/About"
 import MyStories from "../pages/web/MyStories";
 import NewStory from "../pages/web/NewStory";
 import Stories from "../pages/web/Stories";
@@ -12,42 +13,46 @@ import Error404 from "../pages/error/Error404";
 export default [
     {
         path: "/",
-        page: Home,
+        element: Home,
     },
     {
         path: "/register",
-        page: Register,
+        element: Register,
     },
     {
         path: "/login",
-        page: Login,
+        element: Login,
+    },
+    {
+        path: "/about",
+        element: About,
     },
     {
         path: "/stories",
-        page: Stories,
+        element: Stories,
     },
     {
         path: "/mystories",
-        page: MyStories,
+        element: MyStories,
     },
     {
         path: "/newstory",
-        page: NewStory,
+        element: NewStory,
     },
     {
         path: "/viewstory/:id",
-        page: ViewStory,
+        element: ViewStory,
     },
     {
         path: "/articles",
-        page: Articles,
+        element: Articles,
     },
     {
         path: "/videos",
-        page: Videos,
+        element: Videos,
     },
     {
         path: "*",
-        page: Error404,
+        element: Error404,
     },
 ];

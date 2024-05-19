@@ -1,6 +1,5 @@
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../components/Loading";
-import Navbar from "../../layouts/Navbar";
 import { Link } from "react-router-dom";
 
 const Stories = () => {
@@ -9,7 +8,6 @@ const Stories = () => {
   console.log("All sstories",data);
   return (
     <div>
-      <Navbar />
       <div>
         {
           loading? 

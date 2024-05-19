@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase';
 import useAuth from '../../hooks/useAuth';
-import Navbar from "../../layouts/Navbar";
 
 const NewStory = () => {
     const { user } = useAuth();
@@ -60,7 +59,6 @@ const NewStory = () => {
 
   return (
     <>
-    <Navbar />
     <div className="story-container">
         <button 
             onClick={handleSubmit} 

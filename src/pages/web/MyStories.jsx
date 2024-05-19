@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import Navbar from "../../layouts/Navbar";
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../components/Loading";
 
@@ -14,7 +13,6 @@ const MyStories = () => {
   
   return (
     <div>
-      <Navbar />
       {
         loading? 
         <Loading /> :

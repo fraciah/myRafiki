@@ -36,7 +36,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 2rem;
   cursor: pointer;
   background-color: rgb(164, 164, 232);
 }
@@ -89,9 +89,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   gap: 1rem;
-  background-color: rgb(164, 164, 232);
 }
 .auth-container .title {
   font-size: 3rem;
@@ -101,6 +99,7 @@
   width: 60vw;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
   background-color: pink;
 }
 .auth-container .auth-box .auth-box-left {

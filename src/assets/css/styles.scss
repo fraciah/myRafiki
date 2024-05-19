@@ -42,7 +42,7 @@ $secondary-color: rgb(197, 196, 196);
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1rem 2rem;
     cursor: pointer;
     background-color: $primary-color;
 
@@ -101,9 +101,8 @@ $secondary-color: rgb(197, 196, 196);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    // background-color: pink;
     gap: 1rem;
-    background-color: $primary-color;
 
     .title {
         font-size: 3rem;
@@ -114,6 +113,7 @@ $secondary-color: rgb(197, 196, 196);
         width: 60vw;
         justify-content: center;
         align-items: center;
+        padding: 1rem;
         background-color: pink;
         
         .auth-box-left {
