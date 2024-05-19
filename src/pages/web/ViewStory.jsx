@@ -6,16 +6,28 @@ import { MessageCircle } from "lucide-react";
 import useSingleFetch from "../../hooks/useSingleFetch";
 import moment from "moment";
 import Insight from "./Insight";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const ViewStory = () => {
   const [showInsight, setShowInsight] = useState(false); 
+  const [error, setError] = useState("");
   const { id } = useParams();
   const { data, loading } = useFetch("myPosts");
   const { user } = useAuth();
   const story = data && data.find(story => story.id === id);
-
   const { data: insights, loading:insightsLoading } = useSingleFetch("myPosts", id, "insights");
-  console.log(insights)
+  // console.log(insights);
+  const removeInsight = async(insightId) =>{
+    try{
+      const ref = doc(db, "myPosts", id, "insights", insightId)
+      await deleteDoc(ref);
+      alert("Insight has been removed");
+    }
+    catch(error){
+      setError(error.message);
+    }
+  };
   return (
     <div>
       <div className="page-container">
@@ -51,14 +63,15 @@ const ViewStory = () => {
             (
               insights?.map(insight => (
                 <div 
-                  key={insight.id}
+                  key={insight?.id}
                   className="insight">
-                  <div>{insight.insightText}</div>
-                  <div>{moment(insight.createdAt).fromNow()}</div>
-                  {insight.userID === user.uid && (
+                    {error && <div className="error-message">{error}</div>}
+                  <div>{insight?.insightText}</div>
+                  <div>{moment(insight?.createdAt).fromNow()}</div>
+                  {insight?.userID === user?.uid && (
                     <div>
                       <button>Edit </button>
-                      <button>Delete </button>
+                      <button onClick={() => removeInsight(insight?.id)}>Delete </button>
                     </div>
                   )}
                 </div>
