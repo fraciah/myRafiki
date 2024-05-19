@@ -1,28 +1,40 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../firebase";
 import useAuth from "../../hooks/useAuth";
 import { X } from "lucide-react";
 
-const Insight = ({setShowInsight, storyId}) => {
+const Insight = ({setShowInsight, storyId, insightId, initialInsightText}) => {
     const { user } = useAuth();
-    const [insight, setInsight] = useState("");
+    const [insight, setInsight] = useState(initialInsightText || "");
     const [error, setError] = useState("");
 
-    const writeInsight = async () => {
+    const submitInsight = async () => {
         try{
             if(insight === ""){
                 setError("Kindly enter your insights");
             }
             else{
-                const insightRef = collection(db, "myPosts", storyId, "insights");
-                await addDoc(insightRef, {
-                    insightText: insight,
-                    userID: user.uid,
-                    createdAt: Date.now(),
-                });
-                alert("Insight added successfully");
-                setInsight("");
+                if(insightId){
+                    //update insight
+                    const ref = doc(db, "myPosts", storyId, "insights", insightId);
+                    await updateDoc(ref, {
+                        insightText: insight,
+                        updatedAt: Date.now(),
+                    });
+                    alert("Insight updated successfully");
+                }
+                else{
+                    //create insight
+                    const insightRef = collection(db, "myPosts", storyId, "insights");
+                    await addDoc(insightRef, {
+                        insightText: insight,
+                        userID: user.uid,
+                        createdAt: Date.now(),
+                        updatedAt: null,
+                    });
+                    alert("Insight added successfully");
+                }
                 setShowInsight(false);
             }
         }
@@ -55,9 +67,9 @@ const Insight = ({setShowInsight, storyId}) => {
                     </button>
                     <button 
                         className="btn"
-                        onClick={writeInsight}
+                        onClick={submitInsight}
                     >
-                        Share
+                        {insightId ? 'Update Insight' : 'Share'}
                     </button>
                 </div>
             </div>

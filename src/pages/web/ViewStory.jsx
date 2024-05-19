@@ -12,12 +12,14 @@ import { db } from "../../firebase";
 const ViewStory = () => {
   const [showInsight, setShowInsight] = useState(false); 
   const [error, setError] = useState("");
+  const [insightId, setInsightId] = useState(null); 
+  const [initialInsightText, setInitialInsightText] = useState(""); 
   const { id } = useParams();
   const { data, loading } = useFetch("myPosts");
   const { user } = useAuth();
   const story = data && data.find(story => story.id === id);
   const { data: insights, loading:insightsLoading } = useSingleFetch("myPosts", id, "insights");
-  // console.log(insights);
+  
   const removeInsight = async(insightId) =>{
     try{
       const ref = doc(db, "myPosts", id, "insights", insightId)
@@ -28,14 +30,26 @@ const ViewStory = () => {
       setError(error.message);
     }
   };
+
   return (
     <div>
       <div className="page-container">
-        {showInsight && <Insight setShowInsight={setShowInsight} storyId={id}/>}
+        {showInsight 
+          && 
+          <Insight 
+              setShowInsight={setShowInsight} 
+              storyId={id}
+              insightId={insightId}
+              initialInsightText={initialInsightText}
+          />}
         <div className="story-header">
           <h2 className="story-title">{story?.title}</h2>
           <div 
-            onClick={() => setShowInsight(true)}
+            onClick={() => {
+              setShowInsight(true);
+              setInsightId(null);
+              setInitialInsightText("");
+            }}
             className="insights btn"
           >
             <div className="insight-icon">
@@ -67,10 +81,23 @@ const ViewStory = () => {
                   className="insight">
                     {error && <div className="error-message">{error}</div>}
                   <div>{insight?.insightText}</div>
-                  <div>{moment(insight?.createdAt).fromNow()}</div>
+                  <div>
+                    {
+                    insight?.updatedAt? 
+                    moment(insight?.updatedAt).fromNow() : 
+                    moment(insight?.createdAt).fromNow()
+                    }
+                  </div>
                   {insight?.userID === user?.uid && (
                     <div>
-                      <button>Edit </button>
+                      <button onClick={() => {
+                        setShowInsight(true); 
+                        setInsightId(insight.id);
+                        setInitialInsightText(insight.insightText)
+                      }}
+                      >
+                        Edit
+                      </button>
                       <button onClick={() => removeInsight(insight?.id)}>Delete </button>
                     </div>
                   )}
