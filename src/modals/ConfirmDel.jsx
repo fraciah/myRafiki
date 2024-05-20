@@ -1,18 +1,25 @@
-import { deleteDoc, doc } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { X } from "lucide-react";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const ConfirmDel = ({setShowModal, story}) => {
+    const { user } = useAuth();
     const navigate = useNavigate();
 
     const removeStory = async() =>{
         try{
-            const ref = doc(db  , "stories", story.id);
-            await deleteDoc(ref);
+            const storyRef = doc(db, "stories", story.id);
+            const insightSRef = collection(storyRef, "insights");
+            const insightsSnapshot = await getDocs(insightSRef);
+            insightsSnapshot.forEach(async(doc) => {
+                await deleteDoc(doc.ref);
+            });
+            await deleteDoc(storyRef);
             // toast.success("Story has been removed");
+            alert("Story and all associated insights have been removed");
             setShowModal(false);
-            alert("Story has been removed");
             navigate("/mystories");
         }
         catch(error){
