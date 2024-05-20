@@ -1,10 +1,10 @@
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import useFetch from '../../hooks/useFetch';
+import useFetch from '../../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 
 const EditStory = () => {

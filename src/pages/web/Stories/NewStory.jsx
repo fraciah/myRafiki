@@ -3,8 +3,8 @@ import 'react-quill/dist/quill.snow.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../../firebase';
-import useAuth from '../../hooks/useAuth';
+import { db } from '../../../firebase';
+import useAuth from '../../../hooks/useAuth';
 
 const NewStory = () => {
     const { user } = useAuth();

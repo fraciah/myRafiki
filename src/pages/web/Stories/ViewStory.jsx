@@ -1,15 +1,15 @@
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../../hooks/useFetch";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useSingleFetch from "../../hooks/useSingleFetch";
+import useSingleFetch from "../../../hooks/useSingleFetch";
 import { deleteDoc, doc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../../firebase";
 import moment from "moment";
 import { MessageCircle } from "lucide-react";
-import Insight from "./Insight";
-import ConfirmDel from "../../modals/ConfirmDel";
+import Insight from "../../../modals/Insight";
+import ConfirmDel from "../../../modals/ConfirmDel";
 
 const ViewStory = () => {
   const [showInsight, setShowInsight] = useState(false); 

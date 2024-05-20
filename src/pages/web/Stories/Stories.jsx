@@ -1,5 +1,5 @@
-import useFetch from "../../hooks/useFetch";
-import Loading from "../../components/Loading";
+import useFetch from "../../../hooks/useFetch";
+import Loading from "../../../components/Loading";
 import { Link } from "react-router-dom";
 
 const Stories = () => {

@@ -1,7 +1,7 @@
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { useState } from "react";
-import { db } from "../../firebase";
-import useAuth from "../../hooks/useAuth";
+import { db } from "../firebase";
+import useAuth from "../hooks/useAuth";
 import { X } from "lucide-react";
 
 const Insight = ({setShowInsight, storyId, insightId, initialInsightText}) => {
@@ -36,6 +36,7 @@ const Insight = ({setShowInsight, storyId, insightId, initialInsightText}) => {
                     alert("Insight added successfully");
                 }
                 setShowInsight(false);
+                // SMS API
             }
         }
         catch(error){

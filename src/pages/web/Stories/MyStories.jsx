@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import useFetch from "../../hooks/useFetch";
-import Loading from "../../components/Loading";
+import useAuth from "../../../hooks/useAuth";
+import useFetch from "../../../hooks/useFetch";
+import Loading from "../../../components/Loading";
 
 const MyStories = () => {
   const navigate = useNavigate();
