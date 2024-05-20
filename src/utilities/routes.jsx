@@ -6,6 +6,7 @@ import MyStories from "../pages/web/MyStories";
 import NewStory from "../pages/web/NewStory";
 import Stories from "../pages/web/Stories";
 import ViewStory from "../pages/web/ViewStory";
+import EditStory from "../pages/web/EditStory";
 import Videos from "../pages/web/Videos";
 import Articles from "../pages/web/Articles";
 import Error404 from "../pages/error/Error404";
@@ -42,6 +43,10 @@ export default [
     {
         path: "/viewstory/:id",
         element: ViewStory,
+    },
+    {
+        path: "/editstory/:id",
+        element: EditStory,
     },
     {
         path: "/articles",

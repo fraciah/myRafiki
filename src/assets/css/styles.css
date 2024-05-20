@@ -166,6 +166,9 @@
   display: flex;
   justify-content: space-between;
 }
+.page-container .story-header .story-left {
+  gap: 1rem;
+}
 .page-container .story-header .insights {
   display: flex;
   gap: 1rem;
@@ -213,6 +216,12 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
+.overlay .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
 .overlay .insights-container {
   display: flex;
   flex-direction: column;
@@ -227,12 +236,6 @@
   height: 60%;
   border-radius: 0.3rem;
   background-color: white;
-}
-.overlay .insights-container .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
 }
 .overlay .insights-container .insight-content {
   display: flex;
@@ -253,4 +256,25 @@
 .overlay .insights-container .insight-content .insight-actions {
   display: flex;
   gap: 1rem;
+}
+.overlay .confirm-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.3rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.overlay .confirm-container .actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }/*# sourceMappingURL=styles.css.map */
