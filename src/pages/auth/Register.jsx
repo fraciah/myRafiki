@@ -56,7 +56,7 @@ const Register = () => {
             await linkWithCredential(auth.currentUser, credential);
 
             console.log("User registered successfully");
-            console.log("smsAPI",userData.phone)
+            // console.log("smsAPI",userData.phone) SMS API
             navigate("/login");
         } 
         catch (error) {
