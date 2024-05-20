@@ -198,12 +198,17 @@ $secondary-color: rgb(197, 196, 196);
             }
         }
     }
+    .story-content {
+        word-wrap: break-word;
+    }
     
     .story {
+        width: 100%;
         text-decoration: none;
         padding: 1rem;
         border-radius: 10px;
         color: black;
+        word-wrap: break-word;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     
