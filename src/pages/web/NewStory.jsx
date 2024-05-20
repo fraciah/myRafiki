@@ -1,6 +1,6 @@
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase';
@@ -14,7 +14,7 @@ const NewStory = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async () => {
+    const AddStory = async () => {
         setLoading(true);
         try{
             if(title === "" || story === ""){
@@ -42,6 +42,7 @@ const NewStory = () => {
                 title: title,  
                 story: storyWithoutPTags,
                 createdAt: Date.now(),
+                updatedAt: null,
                 pageViews: 0,
             });
             alert("Story added successfully");
@@ -56,13 +57,13 @@ const NewStory = () => {
         finally{
             setLoading(false);
         }
-    }
+    };
 
   return (
     <>
     <div className="page-container">
         <button 
-            onClick={handleSubmit} 
+            onClick={AddStory} 
             className="btn">
                 {loading ? "Loading..." : "Share"}
         </button>

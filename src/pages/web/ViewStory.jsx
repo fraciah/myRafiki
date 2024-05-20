@@ -2,21 +2,25 @@ import useAuth from "../../hooks/useAuth";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { useState } from "react";
-import { MessageCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import useSingleFetch from "../../hooks/useSingleFetch";
-import moment from "moment";
-import Insight from "./Insight";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
+import moment from "moment";
+import { MessageCircle } from "lucide-react";
+import Insight from "./Insight";
+import ConfirmDel from "../../modals/ConfirmDel";
 
 const ViewStory = () => {
   const [showInsight, setShowInsight] = useState(false); 
+  const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState("");
   const [insightId, setInsightId] = useState(null); 
   const [initialInsightText, setInitialInsightText] = useState(""); 
   const { id } = useParams();
   const { data, loading } = useFetch("stories");
   const { user } = useAuth();
+  const navigate = useNavigate();
   const story = data && data.find(story => story.id === id);
   const { data: insights, loading:insightsLoading } = useSingleFetch("stories", id, "insights");
   
@@ -43,7 +47,16 @@ const ViewStory = () => {
               initialInsightText={initialInsightText}
           />}
         <div className="story-header">
-          <h2 className="story-title">{story?.title}</h2>
+          <div className="story-left">
+            <h2 className="story-title">{story?.title}</h2> 
+            <div>
+              {
+              story?.updatedAt? 
+              <span>Updated {moment(story?.updatedAt).fromNow()}</span> : 
+              <span>Created {moment(story?.createdAt).fromNow()}</span>
+              }
+            </div>
+          </div>
           <div 
             onClick={() => {
               setShowInsight(true);
@@ -63,9 +76,28 @@ const ViewStory = () => {
         <p className="story-views">Views: {story?.pageViews}</p>
         {user?.uid === story?.userID && (
           <div>
-            <button className="btn">Edit Story</button>
+            <button 
+              className="btn"
+              onClick={() => navigate(`/editstory/${id}`)}
+            >
+              Edit Story
+            </button>
+            <button 
+              className="btn"
+              onClick={() => setShowModal(true)}
+            >
+              Delete Story
+            </button>
           </div>
         )}
+        {
+          showModal && 
+          <ConfirmDel 
+            setShowModal={setShowModal}
+            story={story}
+          />
+        }
+
         <div className="insights-section">
           <div className="insights-header">Insights</div>
           {
