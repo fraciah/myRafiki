@@ -1,0 +1,1 @@
+export const QUOTABLE_API = 'https://api.quotable.io/random';

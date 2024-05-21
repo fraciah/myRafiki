@@ -19,8 +19,8 @@ const Navbar = () => {
           <Link className="nav-item" to="/about">About</Link>
           <Link className="nav-item" to={user ? "/stories" : "/"}>Stories</Link>
           <Link className="nav-item" to={user ? "/mystories" : "/"}>My Stories</Link>
-          <Link className="nav-item" to="/articles">Articles</Link>
-          <Link className="nav-item" to="/videos">Videos</Link>
+          <Link className="nav-item" to="/wellness-insights">Wellness Insights</Link>
+          <Link className="nav-item" to="/wellness-videos">WellnessVideos</Link>
         </div>
         {user && <div onClick={logOut}>Logout</div>}
     </nav>

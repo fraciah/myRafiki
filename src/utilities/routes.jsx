@@ -7,8 +7,8 @@ import MyStories from "../pages/web/Stories/MyStories";
 import NewStory from "../pages/web/Stories/NewStory";
 import ViewStory from "../pages/web/Stories/ViewStory";
 import EditStory from "../pages/web/Stories/EditStory";
-import Videos from "../pages/web/Videos";
-import Articles from "../pages/web/Articles";
+import WellnessVideos from "../pages/web/WellnessVideos";
+import WellnessInsights from "../pages/web/WellnessInsights";
 import Error404 from "../pages/error/Error404";
 
 export default [
@@ -49,12 +49,12 @@ export default [
         element: EditStory,
     },
     {
-        path: "/articles",
-        element: Articles,
+        path: "/wellness-insights",
+        element: WellnessInsights,
     },
     {
-        path: "/videos",
-        element: Videos,
+        path: "/wellness-videos",
+        element: WellnessVideos,
     },
     {
         path: "*",
