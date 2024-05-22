@@ -42,7 +42,7 @@
   justify-content: space-between;
   cursor: pointer;
   padding: 0 1rem;
-  background-color: rgb(164, 164, 232);
+  border-bottom: 1px solid #f0f0f0;
 }
 .navbar .logo-holder {
   display: flex;
@@ -58,7 +58,6 @@
   gap: 2rem;
 }
 .navbar .nav-items .nav-item {
-  color: #fff;
   text-decoration: none;
 }
 .navbar .nav-items .nav-item:hover {
@@ -354,4 +353,51 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  border-top: 1px solid #f0f0f0;
+  background: #f0f0f0;
+}
+footer a {
+  text-decoration: none;
+}
+footer .footer-content {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .footer-content .logo-holder {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+footer .footer-content .logo-holder img {
+  width: 70px;
+  height: 50px;
+}
+footer .footer-content .socials {
+  display: flex;
+  gap: 1rem;
+}
+footer .footer-content .socials .social {
+  cursor: pointer;
+  color: black;
+  font-size: 1.5rem;
+}
+footer .footer-content .tag {
+  color: black;
+  letter-spacing: 1px;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  text-align: center;
+  border-top: 1px solid #000;
 }/*# sourceMappingURL=styles.css.map */

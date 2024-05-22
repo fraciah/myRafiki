@@ -52,7 +52,8 @@ $secondary-color: rgb(197, 196, 196);
     justify-content: space-between;
     cursor: pointer;
     padding: 0 1rem;
-    background-color: $primary-color;
+    border-bottom: 1px solid #f0f0f0;
+    // background-color: $primary-color;
     
     .logo-holder {
         display: flex;
@@ -70,7 +71,7 @@ $secondary-color: rgb(197, 196, 196);
         gap: 2rem;
 
         .nav-item {
-            color: #fff;
+            // color: #fff;
             text-decoration: none;
 
             &:hover {
@@ -410,6 +411,61 @@ $secondary-color: rgb(197, 196, 196);
             display: flex;
             gap: 1rem;
             justify-content: center;
+        }
+    }
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0;
+    border-top: 1px solid #f0f0f0;
+    // color: #fff;
+    background: #f0f0f0;
+
+    a {
+        text-decoration: none;
+    }
+    
+    .footer-content {
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .logo-holder {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+
+            img {
+                width: 70px;
+                height: 50px;
+            }
+        }
+
+        .socials {
+            display: flex;
+            gap: 1rem;
+
+            .social {
+                cursor: pointer;
+                color: black;
+                font-size: 1.5rem;
+            }
+        }
+
+        .tag {
+            color: black;
+            letter-spacing: 1px;
+            width: 100%;
+            margin-top: 1rem;
+            padding: 1rem 0;
+            text-align: center;
+            border-top: 1px solid #000;
         }
     }
 }
