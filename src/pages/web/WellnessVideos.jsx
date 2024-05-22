@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { YTLinks } from "../../utilities/YouTube";
+import { YTLinks } from "../../utilities/Data/YouTube";
 import ReactPlayer from 'react-player';
 
 const WellnessVideos = () => {
