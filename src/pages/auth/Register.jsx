@@ -3,10 +3,11 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { RecaptchaVerifier, signInWithPhoneNumber, createUserWithEmailAndPassword } from "firebase/auth";
 import { linkWithCredential, EmailAuthProvider } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import plc from "../../assets/images/plc.jpg";
+import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
     const [user, setUser] = useState(null);
@@ -49,12 +50,18 @@ const Register = () => {
                 setError("Please verify phone number")
                 return;
             }
-            // const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password);
-            // console.log(userCredential);
             const credential = EmailAuthProvider.credential(userData.email, userData.password);
             //linking the credential to the current user
             await linkWithCredential(auth.currentUser, credential);
-
+            //create a new document in the 'users' collection with the user's data
+            const userDoc = doc(db, "users", auth.currentUser.uid);
+            await setDoc(userDoc, {
+                uid: auth.currentUser.uid,
+                email: userData.email,
+                phone: userData.phone,
+                is_verified: false,
+                displayName: auth.currentUser.displayName,
+            });
             console.log("User registered successfully");
             // console.log("smsAPI",userData.phone) SMS API
             navigate("/login");

@@ -7,22 +7,24 @@ import useSingleFetch from "../../../hooks/useSingleFetch";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import moment from "moment";
-import { MessageCircle } from "lucide-react";
+import { BadgeCheck, MessageCircle } from "lucide-react";
 import Insight from "../../../modals/Insight";
 import ConfirmDel from "../../../modals/ConfirmDel";
 
 const ViewStory = () => {
+  const { user } = useAuth();
+  const { data, loading } = useFetch("stories");
+  const { id } = useParams();
+  const { data: users } = useFetch("users");
+  const { data: insights, loading:insightsLoading } = useSingleFetch("stories", id, "insights");
   const [showInsight, setShowInsight] = useState(false); 
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState("");
   const [insightId, setInsightId] = useState(null); 
   const [initialInsightText, setInitialInsightText] = useState(""); 
-  const { id } = useParams();
-  const { data, loading } = useFetch("stories");
-  const { user } = useAuth();
   const navigate = useNavigate();
   const story = data && data.find(story => story.id === id);
-  const { data: insights, loading:insightsLoading } = useSingleFetch("stories", id, "insights");
+  console.log("insights", insights)
   
   const removeInsight = async(insightId) =>{
     try{
@@ -107,34 +109,38 @@ const ViewStory = () => {
               <p className="no-insights">This story has no insights</p>
             ) : 
             (
-              insights?.map(insight => (
-                <div 
-                  key={insight?.id}
-                  className="insight">
-                    {error && <div className="error-message">{error}</div>}
-                  <div>{insight?.insightText}</div>
-                  <div>
-                    {
-                    insight?.updatedAt? 
-                    moment(insight?.updatedAt).fromNow() : 
-                    moment(insight?.createdAt).fromNow()
-                    }
-                  </div>
-                  {insight?.userID === user?.uid && (
+              insights?.map(insight => {
+                const insightUser = users && users.find(user => user.id === insight.userID);
+                return (
+                  <div 
+                    key={insight?.id}
+                    className="insight">
+                      {error && <div className="error-message">{error}</div>}
+                    {insightUser?.is_verified && <div>{insightUser?.displayName}<BadgeCheck /></div> }
+                    <div className="insight-text">{insight?.insightText}</div>
                     <div>
-                      <button onClick={() => {
-                        setShowInsight(true); 
-                        setInsightId(insight.id);
-                        setInitialInsightText(insight.insightText)
-                      }}
-                      >
-                        Edit
-                      </button>
-                      <button onClick={() => removeInsight(insight?.id)}>Delete </button>
+                      {
+                      insight?.updatedAt? 
+                      moment(insight?.updatedAt).fromNow() : 
+                      moment(insight?.createdAt).fromNow()
+                      }
                     </div>
-                  )}
-                </div>
-              ))
+                    {insight?.userID === user?.uid && (
+                      <div>
+                        <button onClick={() => {
+                          setShowInsight(true); 
+                          setInsightId(insight.id);
+                          setInitialInsightText(insight.insightText)
+                        }}
+                        >
+                          Edit
+                        </button>
+                        <button onClick={() => removeInsight(insight?.id)}>Delete </button>
+                      </div>
+                    )}
+                  </div>
+                )
+              })
             ))
           }
         </div>

@@ -235,6 +235,10 @@ $secondary-color: rgb(197, 196, 196);
         }
         .insight {
             margin: 1rem 0;
+
+            .insight-text {
+                word-wrap: break-word;
+            }
         }
     }
 }

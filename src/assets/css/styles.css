@@ -206,6 +206,9 @@
 .page-container .insights-section .insight {
   margin: 1rem 0;
 }
+.page-container .insights-section .insight .insight-text {
+  word-wrap: break-word;
+}
 
 .overlay {
   position: fixed;
