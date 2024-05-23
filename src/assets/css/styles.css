@@ -190,7 +190,6 @@
   align-items: center;
   justify-content: flex-end;
   padding: 2rem;
-  background-color: pink;
 }
 .auth-container .form {
   padding: 2rem;
@@ -299,19 +298,30 @@
 .page-container .story-content {
   word-wrap: break-word;
 }
+.page-container .insight-user {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.page-container .act {
+  cursor: pointer;
+}
+.page-container .edit {
+  color: rgb(71, 185, 71);
+}
+.page-container .edit:hover {
+  color: rgb(102, 228, 102);
+}
+.page-container .del {
+  color: rgb(198, 49, 49);
+}
+.page-container .del:hover {
+  color: rgb(228, 102, 102);
+}
 .page-container .story-actions {
   display: flex;
   gap: 1rem;
   align-items: center;
-}
-.page-container .story-actions .act {
-  cursor: pointer;
-}
-.page-container .story-actions .edit {
-  color: rgb(71, 185, 71);
-}
-.page-container .story-actions .del {
-  color: rgb(198, 49, 49);
 }
 .page-container .story-container {
   display: flex;
@@ -349,18 +359,18 @@
   font-size: 0.8rem;
   color: #565656;
 }
-.page-container .edit-actions {
-  display: flex;
-  gap: 1rem;
-}
-.page-container .edit-actions .cancel {
+.page-container .cancel {
   border: none;
   font-size: 1rem;
   cursor: pointer;
   background: #fff;
 }
-.page-container .edit-actions .cancel:hover {
+.page-container .cancel:hover {
   color: rgb(164, 164, 232);
+}
+.page-container .edit-actions {
+  display: flex;
+  gap: 1rem;
 }
 .page-container .new-story-content {
   margin: 1rem 0;
@@ -376,10 +386,14 @@
   font-weight: 600;
   color: #6262A6;
 }
-.page-container .insights-section .insight {
-  margin: 1rem 0;
+.page-container .insights-section .insight-holder {
+  display: flex;
+  flex-wrap: wrap;
 }
-.page-container .insights-section .insight .insight-text {
+.page-container .insights-section .insight-holder .insight {
+  margin: 0.4rem 0;
+}
+.page-container .insights-section .insight-holder .insight .insight-text {
   word-wrap: break-word;
 }
 .page-container .vid-container {
@@ -397,6 +411,11 @@
   display: flex;
   flex-direction: column;
   flex-basis: calc(50% - 0.5rem);
+}
+
+.insight-actions {
+  display: flex;
+  gap: 1rem;
 }
 
 .overlay {
@@ -444,10 +463,6 @@
   margin-top: 10px;
   outline: none;
   border: 1px solid rgb(197, 196, 196);
-}
-.overlay .insights-container .insight-content .insight-actions {
-  display: flex;
-  gap: 1rem;
 }
 .overlay .confirm-container {
   display: flex;

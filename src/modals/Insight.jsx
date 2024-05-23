@@ -62,15 +62,15 @@ const Insight = ({setShowInsight, storyId, insightId, initialInsightText}) => {
                 <div className="insight-actions">
                     <button 
                         className="btn"
-                        onClick={() =>setInsight("")}
-                    >
-                        Cancel
-                    </button>
-                    <button 
-                        className="btn"
                         onClick={submitInsight}
                     >
                         {insightId ? 'Update Insight' : 'Share'}
+                    </button>
+                    <button 
+                        className="cancel"
+                        onClick={() =>setInsight("")}
+                    >
+                        Cancel
                     </button>
                 </div>
             </div>

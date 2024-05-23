@@ -112,32 +112,43 @@ const ViewStory = () => {
               insights?.map(insight => {
                 const insightUser = users && users.find(user => user.id === insight.userID);
                 return (
-                  <div 
-                    key={insight?.id}
-                    className="insight">
-                      {error && <div className="error-message">{error}</div>}
-                    {insightUser?.is_verified && <div>{insightUser?.displayName}<BadgeCheck /></div> }
-                    <div className="insight-text">{insight?.insightText}</div>
-                    <div>
+                  <div className="insight-holder">
+                    <div 
+                      key={insight?.id}
+                      className="insight">
+                        {error && <div className="error-message">{error}</div>}
                       {
-                      insight?.updatedAt? 
-                      moment(insight?.updatedAt).fromNow() : 
-                      moment(insight?.createdAt).fromNow()
+                        insightUser?.is_verified && 
+                        <div className="insight-user">{insightUser?.displayName}
+                          <BadgeCheck style={{color: "#6262A6"}}/>
+                        </div> 
                       }
-                    </div>
-                    {insight?.userID === user?.uid && (
+                      <div className="insight-text">{insight?.insightText}</div>
                       <div>
-                        <button onClick={() => {
-                          setShowInsight(true); 
-                          setInsightId(insight.id);
-                          setInitialInsightText(insight.insightText)
-                        }}
-                        >
-                          Edit
-                        </button>
-                        <button onClick={() => removeInsight(insight?.id)}>Delete </button>
+                        {
+                        insight?.updatedAt? 
+                        moment(insight?.updatedAt).fromNow() : 
+                        moment(insight?.createdAt).fromNow()
+                        }
                       </div>
-                    )}
+                      {insight?.userID === user?.uid && (
+                        <div className="insight-actions">
+                          <div
+                             className="act edit icon"
+                             onClick={() => {
+                              setShowInsight(true); 
+                              setInsightId(insight.id);
+                              setInitialInsightText(insight.insightText)
+                            }}
+                          >
+                            Edit
+                          </div>
+                          <div 
+                            className="act del icon"
+                            onClick={() => removeInsight(insight?.id)}>Delete</div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )
               })

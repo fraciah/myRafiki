@@ -1,8 +1,7 @@
-
 const About = () => {
   return (
-    <div>
-      About myRafiki
+    <div className="page-container">
+      <div className="title">About myRafiki</div>
     </div>
   )
 }

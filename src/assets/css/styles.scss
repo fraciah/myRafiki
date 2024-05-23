@@ -227,7 +227,6 @@ $gray: #BBBBBB;
     align-items: center;
     justify-content: flex-end;
     padding: 2rem;
-    background-color: pink;
     
     .form {
         padding: 2rem;
@@ -258,7 +257,6 @@ $gray: #BBBBBB;
             align-items: center;
             gap: 0.4rem;
             width: 100%;
-            // background-color: pink;
 
             .phone-input {
                 display: flex;
@@ -354,21 +352,36 @@ $gray: #BBBBBB;
         word-wrap: break-word;
     }
 
+    .insight-user {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .act {
+        cursor: pointer;
+    }
+
+    .edit {
+        color: rgb(71, 185, 71);
+
+        &:hover {
+            color: rgb(102, 228, 102);
+        }
+    }
+    .del {
+        color: rgb(198, 49, 49);
+
+        &:hover {
+            color: rgb(228, 102, 102);
+        }
+    }
+
     .story-actions {
         display: flex;
         gap: 1rem;
         align-items: center;
 
-        .act {
-            cursor: pointer;
-        }
-
-        .edit {
-            color: rgb(71, 185, 71);
-        }
-        .del {
-            color: rgb(198, 49, 49);
-        }
     }
     
     .story-container {
@@ -412,20 +425,20 @@ $gray: #BBBBBB;
         }
     }
 
+    .cancel {
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        background: #fff;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
     .edit-actions {
         display: flex;
         gap: 1rem;
 
-        .cancel {
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            background: #fff;
-
-            &:hover {
-                color: $primary-color;
-            }
-        }
     }
     
     .new-story-content{
@@ -445,11 +458,17 @@ $gray: #BBBBBB;
             font-weight: 600;
             color: $primary-color-hover;
         }
-        .insight {
-            margin: 1rem 0;
-
-            .insight-text {
-                word-wrap: break-word;
+        .insight-holder{
+            display: flex;
+            flex-wrap: wrap;
+            // background-color: PINK;
+            
+            .insight {
+                margin: 0.4rem 0;
+    
+                .insight-text {
+                    word-wrap: break-word;
+                }
             }
         }
     }
@@ -472,6 +491,10 @@ $gray: #BBBBBB;
             }
         }
     }
+}
+.insight-actions {
+    display: flex;
+    gap: 1rem;
 }
 
 .overlay {
@@ -523,10 +546,6 @@ $gray: #BBBBBB;
                 border: 1px solid $secondary-color;
             }
 
-            .insight-actions {
-                display: flex;
-                gap: 1rem;
-            }
         }
     }
     .confirm-container {
