@@ -16,18 +16,22 @@ const WellnessVideos = () => {
 
   return (
     <div className="page-container">
-      <div>Wellness Videos</div>
+      <div className="title">Wellness Videos</div>
       <button
         onClick={generateRandomVids}
         className="btn"
       >
         Get Inspired
       </button>
-      {randomVids?.map((video, videoIndex) => (
-        <div key={videoIndex}>
-          <ReactPlayer url={video} />
+      <div className="vid-container">
+        <div className="vid-holder">
+          {randomVids?.map((video, videoIndex) => (
+            <div key={videoIndex} className="vid">
+              <ReactPlayer width={"100%"} url={video} />
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   )
 }

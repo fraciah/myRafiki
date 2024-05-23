@@ -17,19 +17,24 @@ const MyStories = () => {
         loading? 
         <Loading /> :
         <div className="page-container">
+          {loading && <Loading />}
           <button 
             className="btn"
             onClick={() => navigate("/newstory")}>
               Add a story
           </button>
           {myStories.length === 0 && <div>You have no experiences or stories added yet</div>}
-          {myStories?.map((story) => (
-            <Link to={`/viewstory/${story.id}`} key={story.id} className="story">
-              <h3>{story.title.substring(0, 100)}...</h3>
-              <p>{story.story.substring(0, 200)}...</p>
-              <p>Views: {story.pageViews}</p>
-            </Link>
-          ))}
+          <div className="story-container">
+            <div className="story-holder">
+              {myStories?.map((story) => (
+                <Link to={`/viewstory/${story.id}`} key={story.id} className="story">
+                  <div className="story-title">{story.title.substring(0, 100)}...</div>
+                  <div className="story-story">{story.story.substring(0, 200)}...</div>
+                  <div className="story-views">Views: {story.pageViews}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
         }
     </div>

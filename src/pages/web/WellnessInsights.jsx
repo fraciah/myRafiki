@@ -4,13 +4,13 @@ const WellnessInsights = () => {
   const { data, isLoading } = RqQuotes();
 
   return (
-    <div className="page-container">
-      <h1>Wellness Insights.</h1>
+    <div className="page-container linear">
+      <div className="title">Wellness Insights</div>
       {isLoading && <p>Loading...</p>}
       {data ? (
         data.map((quote) => (
           <div key={quote.id}>
-            <p>{quote.content}</p>
+            <p>✨{quote.content}</p>
           </div>
         ))
       ) : (

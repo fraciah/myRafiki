@@ -4,7 +4,7 @@ $primary-color: rgb(164, 164, 232);
 // $primary-color-hover: rgb(123, 123, 207);
 $primary-color-hover: #6262A6;
 $secondary-color: rgb(197, 196, 196);
-// #BBBBBB
+$gray: #BBBBBB;
 
 *{
     margin: 0;
@@ -88,12 +88,22 @@ $secondary-color: rgb(197, 196, 196);
         gap: 2rem;
         
         .nav-item {
-            color: #000;
-            // color: #fff;
             text-decoration: none;
 
-            &:hover {
-                color: gray;
+            &.inactive {
+                color: #000;
+
+                &:hover {
+                    color: gray;
+                }
+            }
+
+            &.active {
+                color: $primary-color;
+
+                &:hover {
+                    color: $primary-color-hover;
+                }
             }
         }
     }
@@ -315,6 +325,12 @@ $secondary-color: rgb(197, 196, 196);
     gap: 1rem;
     margin-top: 1rem;
 
+    .title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: $primary-color-hover;
+    }
+
     .story-header {
         display: flex;
         justify-content: space-between;
@@ -337,39 +353,122 @@ $secondary-color: rgb(197, 196, 196);
     .story-content {
         word-wrap: break-word;
     }
+
+    .story-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        .act {
+            cursor: pointer;
+        }
+
+        .edit {
+            color: rgb(71, 185, 71);
+        }
+        .del {
+            color: rgb(198, 49, 49);
+        }
+    }
     
-    .story {
-        width: 100%;
-        text-decoration: none;
-        padding: 1rem;
-        border-radius: 10px;
-        color: black;
-        word-wrap: break-word;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    .story-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .story-holder {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            
+            .story {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                flex-basis: calc(50% - 0.5rem);
+                text-decoration: none;
+                color: #000;
+                padding-bottom: 0.2rem;
+                border-bottom: 1px solid rgb(235, 234, 234);
+
+                &:hover {
+                    background-color: #f9f9f9;
+                }
+
+                .story-title {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                }
+                .story-story {
+                    font-size: 1rem;
+                    color: #565656;
+                }   
+                .story-views {
+                    font-size: 0.8rem;
+                    color: #565656;
+                }
+            }
+        }
+    }
+
+    .edit-actions {
+        display: flex;
+        gap: 1rem;
+
+        .cancel {
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            background: #fff;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
     }
     
     .new-story-content{
         margin: 1rem 0;
 
-        .title {
+        .story-title {
             border: none;
             outline: none;
             font-size: 2rem;
             width: 100%;
         }
     }
+    
     .insights-section {
-        // background-color: pink;
-
         .insights-header {
             font-size: 1.5rem;
             font-weight: 600;
+            color: $primary-color-hover;
         }
         .insight {
             margin: 1rem 0;
 
             .insight-text {
                 word-wrap: break-word;
+            }
+        }
+    }
+
+    .vid-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .vid-holder {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            .vid {
+                display: flex;
+                flex-direction: column;
+                flex-basis: calc(50% - 0.5rem);
             }
         }
     }
@@ -452,6 +551,10 @@ $secondary-color: rgb(197, 196, 196);
             justify-content: center;
         }
     }
+}
+
+.linear {
+    background-image: linear-gradient(-90deg, #dfdede, white);
 }
 
 footer{

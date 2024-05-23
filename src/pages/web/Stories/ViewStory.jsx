@@ -7,7 +7,7 @@ import useSingleFetch from "../../../hooks/useSingleFetch";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import moment from "moment";
-import { BadgeCheck, MessageCircle } from "lucide-react";
+import { BadgeCheck, MessageCircle, SquarePen, Trash2 } from "lucide-react";
 import Insight from "../../../modals/Insight";
 import ConfirmDel from "../../../modals/ConfirmDel";
 
@@ -77,19 +77,19 @@ const ViewStory = () => {
         <p className="story-content">{story?.story}</p>
         <p className="story-views">Views: {story?.pageViews}</p>
         {user?.uid === story?.userID && (
-          <div>
-            <button 
-              className="btn"
+          <div className="story-actions">
+            <div 
+              className="act edit"
               onClick={() => navigate(`/editstory/${id}`)}
             >
-              Edit Story
-            </button>
-            <button 
-              className="btn"
+              <SquarePen />
+            </div>
+            <div 
+              className="act del"
               onClick={() => setShowModal(true)}
             >
-              Delete Story
-            </button>
+              <Trash2 />
+            </div>
           </div>
         )}
         {

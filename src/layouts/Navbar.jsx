@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import useAuth from "../hooks/useAuth";
 import useSingleUser from "../hooks/useSingleUser";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
@@ -10,7 +10,8 @@ const Navbar = () => {
   const [user, setUser] = useState(authUser);
   const { user: singleUser } = useSingleUser("users", user?.uid);
   const navigate = useNavigate();
-
+  const location = useLocation();
+  
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setUser(user);
@@ -30,12 +31,12 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
         </Link>
         <div className="nav-items">
-          <Link className="nav-item" to={user ? "/stories" : "/"}>Stories</Link> {/**/}
-          <Link className="nav-item" to={user ? "/mystories" : "/"}>My Stories</Link> {/**/}
-          <Link className="nav-item" to="/wellness-insights">Wellness Insights</Link>
-          <Link className="nav-item" to="/wellness-videos">WellnessVideos</Link>
-          {singleUser?.is_verified && <div className="nav-item">Insights</div>}
-          <Link className="nav-item" to="/about">About</Link>
+          <Link className={`nav-item ${location.pathname === "/stories" ? "active": "inactive"}`} to={user ? "/stories" : "/"}>Stories</Link> {/**/}
+          <Link className={`nav-item ${location.pathname === "/mystories" ? "active": "inactive"}`} to={user ? "/mystories" : "/"}>My Stories</Link> {/**/}
+          <Link className={`nav-item ${location.pathname === "/wellness-insights" ? "active": "inactive"}`} to="/wellness-insights">Wellness Insights</Link>
+          <Link className={`nav-item ${location.pathname === "/wellness-videos" ? "active": "inactive"}`} to="/wellness-videos">WellnessVideos</Link> 
+          <Link className={`nav-item ${location.pathname === "/about" ? "active": "inactive"}`} to="/about">About</Link>
+          {singleUser?.is_verified && <Link className="nav-item">Insights</Link>}
         </div>
         {user && <div onClick={logOut}>Logout</div>}
     </nav>

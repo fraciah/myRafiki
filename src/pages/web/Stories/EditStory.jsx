@@ -64,14 +64,17 @@ const EditStory = () => {
 
   return (
     <div className="page-container">
-        <div>
+        <div className="edit-actions">
             <button 
                 onClick={EditStory} 
                 className="btn"
             >
                 {loading? "Updating..." :"Save and update"}
             </button>
-            <button onClick={() => navigate(`/viewstory/${id}`)}>Cancel</button>
+            <button 
+                onClick={() => navigate(`/viewstory/${id}`)}
+                className="cancel"
+            >Cancel</button>
         </div>
         {error && <div className="error-message">{error}</div>}
         <div className="new-story-content">
@@ -80,7 +83,7 @@ const EditStory = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 type="text" 
                 placeholder="Title" 
-                className="title"
+                className="story-title"
             />
             <ReactQuill 
                 theme="snow" 

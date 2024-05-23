@@ -74,7 +74,7 @@ const NewStory = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 type="text" 
                 placeholder="Title" 
-                className="title"
+                className="story-title"
             />
             <ReactQuill 
                 theme="snow" 
