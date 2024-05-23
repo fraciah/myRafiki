@@ -10,14 +10,12 @@ import plc from "../../assets/images/plc.jpg";
 import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
+    const { register, control, watch, handleSubmit, formState: { errors }, } = useForm();
+    const [ error, setError ] = useState("");
     const [user, setUser] = useState(null);
     const [otp, setOtp] = useState("");
     const [phoneVerified, setPhoneVerified] = useState(false);
-    const [ error, setError ] = useState("");
-
-    
     const navigate = useNavigate();
-    const { register, control, watch, handleSubmit, formState: { errors }, } = useForm();
 
     const sendOTP = async(phone) => {
         try {
@@ -27,7 +25,7 @@ const Register = () => {
         } 
         catch (error) {
             console.log("!sendOTP",error)
-            setError(error);
+            setError(error.message);
         }
     }
 
@@ -84,32 +82,29 @@ const Register = () => {
 
   return (
     <div className="auth-container">
-        <div className="auth-box">
-            <div className="auth-box-left">
-                <img src={plc} alt="img" />
-            </div>
-            <form className="auth-box-right" onSubmit={handleSubmit(onRegister)}>
-                <div className="reg-title">Register</div>
-                {error && <div className="error-message">{error}</div>}
-                <div className="error-message">{errors?.email?.message}</div>
-                <input {...register("email", {
-                    required: "Please enter your email address"
-                })} 
-                    className="auth-input input" 
-                    type="text" 
-                    placeholder="Enter your email"
-                />
-                <div className="error-message">{errors?.password?.message}</div>
-                <input {...register("password", {
-                    required: "Please enter a password"
-                })} 
-                    className="auth-input input" 
-                    type="password" 
-                    placeholder="Enter your password"
-                />
-                
-                <div className="phoneNo-cont">
+        <form className="form" onSubmit={handleSubmit(onRegister)}>
+            <div className="reg-title">Register</div>
+            {error && <div className="error-message">{error}</div>}
+            <div className="error-message">{errors?.email?.message}</div>
+            <input {...register("email", {
+                required: "Please enter your email address"
+            })} 
+                className="auth-input input" 
+                type="text" 
+                placeholder="Enter your email"
+            />
+            <div className="error-message">{errors?.password?.message}</div>
+            <input {...register("password", {
+                required: "Please enter a password"
+            })} 
+                className="auth-input input" 
+                type="password" 
+                placeholder="Enter your password"
+            />
+            
+            <div className="phoneNo-cont">
                 <div className="error-message">{errors.phone?.message}</div>
+                <div className="phone-input">
                     <Controller
                         name="phone"
                         control={control}
@@ -123,17 +118,24 @@ const Register = () => {
                             />
                         )}
                     />
-                    <div className="btn" onClick={() => sendOTP(watch("phone"))}>Send OTP</div>
-                    <div id="recaptcha"></div>
-                    <input className="input" type="text" placeholder="Enter OTP" onChange={(e) => setOtp(e.target.value)}/>
-                    <div className="btn" onClick={verifyOTP}>{phoneVerified? "Success!" : "Verify OTP"}</div>
+                    <div 
+                        className="btn send-otp" 
+                        onClick={() => sendOTP(watch("phone"))}
+                    >Send OTP</div>
                 </div>
-                <button className="register btn">Register</button>
-                <div className="redirect-auth">
-                    <p>Already registered? <span onClick={() => navigate("/login")}>Login here</span></p>
+                <div className="phone-verify">
+                    <div id="recaptcha" className="recaptcha"></div>
+                    <div className="otp-cont">
+                        <input className="input" type="text" placeholder="Enter OTP" onChange={(e) => setOtp(e.target.value)}/>
+                        <div className="btn" onClick={verifyOTP}>{phoneVerified? "Success!" : "Verify OTP"}</div>
+                    </div>
                 </div>
-            </form>
-        </div>
+            </div>
+            <button className="register btn">Register</button>
+            <div className="redirect-auth">
+                <p>Already registered? <span onClick={() => navigate("/login")}>Login here</span></p>
+            </div>
+        </form>
     </div>
   )
 }

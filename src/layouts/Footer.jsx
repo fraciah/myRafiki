@@ -14,18 +14,21 @@ const Footer = () => {
           <a 
             className="social" 
             href="https://github.com/fraciah"
+            target="_blank" rel="noopener noreferrer"
           >
               <Github />
           </a>
           <a 
             className="social" 
             href="https://ke.linkedin.com/in/fraciah-karagu-18b393204"
+            target="_blank" rel="noopener noreferrer"
           >
             <Linkedin />
           </a>
         </div>
         <a 
           href="https://github.com/fraciah" 
+          target="_blank" rel="noopener noreferrer"
           className="tag">Crafted with 💜 by Fraciah</a>
       </div>
     </footer>

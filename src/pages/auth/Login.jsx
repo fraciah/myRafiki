@@ -35,35 +35,30 @@ const Login = () => {
 
   return (
     <div className="auth-container">
-      <div className="auth-box">
-        <div className="auth-box-left">
-          <img src={plc} alt="img" />
+      <form className="form" onSubmit={handleSubmit(onLogin)}>
+        <div className="reg-title">Login</div>
+        {error && <div className="error-message">{error}</div>}
+        <div className="error-message">{errors?.email?.message}</div>
+        <input {...register("email", {
+                  required: "Please enter your email"
+              })} 
+                  className="auth-input input" 
+                  type="text" 
+                  placeholder="Enter your email"
+          />
+        <div className="error-message">{errors?.password?.message}</div>
+        <input {...register("password", {
+                  required: "Please enter a password"
+              })} 
+                  className="auth-input input" 
+                  type="password" 
+                  placeholder="Enter your password"
+              />
+        <button className="btn">Login</button>
+        <div className="redirect-auth">
+            <p>Not registered? <span onClick={() => navigate("/register")}>Register here</span></p>
         </div>
-        <form className="auth-box-right" onSubmit={handleSubmit(onLogin)}>
-          <div className="reg-title">Login</div>
-          {error && <div className="error-message">{error}</div>}
-          <div className="error-message">{errors?.email?.message}</div>
-          <input {...register("email", {
-                    required: "Please enter your email"
-                })} 
-                    className="auth-input input" 
-                    type="text" 
-                    placeholder="Enter your email"
-            />
-          <div className="error-message">{errors?.password?.message}</div>
-          <input {...register("password", {
-                    required: "Please enter a password"
-                })} 
-                    className="auth-input input" 
-                    type="password" 
-                    placeholder="Enter your password"
-                />
-          <button className="btn">Login</button>
-          <div className="redirect-auth">
-              <p>Not registered? <span onClick={() => navigate("/register")}>Register here</span></p>
-          </div>
-        </form>
-      </div>
+      </form>
     </div>
   )
 }

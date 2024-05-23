@@ -6,20 +6,23 @@ import Footer from "./layouts/Footer";
 import "./assets/css/styles.css";
 
 function App() {
-
   return (
-    <Router>
-      <AuthProvider>
-        <Navbar/>
-        <Routes>
-          {routes.map((route, index) => (
-            <Route key={index} path={route.path} element={<route.element />} />
-          ))}
-        </Routes>
-        <Footer/>
-      </AuthProvider>
-    </Router>
-  )
+    <div className="app-container">
+      <Router>
+        <AuthProvider>
+          <Navbar />
+          <div className="main-content">
+            <Routes>
+              {routes.map((route, index) => (
+                <Route key={index} path={route.path} element={<route.element />} />
+              ))}
+            </Routes>
+          </div>
+          <Footer />
+        </AuthProvider>
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;
