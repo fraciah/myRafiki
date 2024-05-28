@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 $primary-color: rgb(164, 164, 232);
-// $primary-color-hover: rgb(123, 123, 207);
 $primary-color-hover: #6262A6;
 $secondary-color: rgb(197, 196, 196);
 $gray: #BBBBBB;
@@ -33,8 +32,6 @@ $gray: #BBBBBB;
     cursor: pointer;
     color: #fff;
     border: 1px solid $primary-color;
-    // border-radius: 5px;
-    // padding: 0.4rem 0.6rem;
     font-size: 1rem;
     letter-spacing: 1px;
     padding: 0.4rem 0.8rem;
@@ -70,7 +67,6 @@ $gray: #BBBBBB;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #f0f0f0;
-    // background-color: $primary-color;
     
     .logo-holder {
         display: flex;
@@ -263,8 +259,6 @@ $gray: #BBBBBB;
         .phoneNo-cont {
             display: flex;
             flex-direction: column;
-            // align-items: center;
-            // gap: 0.4rem;
             width: 100%;
 
             .phone-input {
@@ -340,6 +334,18 @@ $gray: #BBBBBB;
     gap: 1rem;
     margin-top: 1rem;
 
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .greeting {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+    }
+
     .title {
         font-size: 1.5rem;
         font-weight: 600;
@@ -382,14 +388,14 @@ $gray: #BBBBBB;
     }
 
     .edit {
-        color: rgb(71, 185, 71);
+        color: rgb(65, 146, 65);
 
         &:hover {
-            color: rgb(102, 228, 102);
+            color: rgb(98, 220, 98);
         }
     }
     .del {
-        color: rgb(198, 49, 49);
+        color: rgb(182, 46, 46);
 
         &:hover {
             color: rgb(228, 102, 102);
@@ -468,6 +474,7 @@ $gray: #BBBBBB;
             outline: none;
             font-size: 2rem;
             width: 100%;
+            background-color: #f9f9f9;
         }
     }
     
@@ -480,7 +487,6 @@ $gray: #BBBBBB;
         .insight-holder{
             display: flex;
             flex-wrap: wrap;
-            // background-color: PINK;
             
             .insight {
                 margin: 0.4rem 0;
@@ -610,7 +616,6 @@ footer{
     width: 100%;
     padding: 1rem 0;
     border-top: 1px solid #f0f0f0;
-    // color: #fff;
     background: #f0f0f0;
 
     a {

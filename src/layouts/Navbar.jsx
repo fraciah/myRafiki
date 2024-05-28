@@ -13,6 +13,12 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  useEffect(() => {
+    if(authUser){
+      setLoggedIn(true);
+    }
+  }, [authUser])
+
   const logOut = async () => {
     await auth.signOut();
     setLoggedIn(false);
@@ -20,6 +26,7 @@ const Navbar = () => {
     console.log("Logged out");
   }
 
+  console.log("Logged in", loggedIn, singleUser)
   return (
     <nav className="navbar">
         <Link className="logo-holder" to="/">

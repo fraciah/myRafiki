@@ -289,6 +289,16 @@
   gap: 1rem;
   margin-top: 1rem;
 }
+.page-container .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-container .page-header .greeting {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
 .page-container .title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -324,13 +334,13 @@
   cursor: pointer;
 }
 .page-container .edit {
-  color: rgb(71, 185, 71);
+  color: rgb(65, 146, 65);
 }
 .page-container .edit:hover {
-  color: rgb(102, 228, 102);
+  color: rgb(98, 220, 98);
 }
 .page-container .del {
-  color: rgb(198, 49, 49);
+  color: rgb(182, 46, 46);
 }
 .page-container .del:hover {
   color: rgb(228, 102, 102);
@@ -397,6 +407,7 @@
   outline: none;
   font-size: 2rem;
   width: 100%;
+  background-color: #f9f9f9;
 }
 .page-container .insights-section .insights-header {
   font-size: 1.5rem;

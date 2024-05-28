@@ -2,15 +2,34 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import useFetch from "../../../hooks/useFetch";
 import Loading from "../../../components/Loading";
+import useSingleUser from "../../../hooks/useSingleUser";
+import { useEffect, useState } from "react";
+import { Clock12, MoonStar, Sun } from "lucide-react";
 
 const MyStories = () => {
   const navigate = useNavigate();
   const { data, loading } = useFetch("stories");
   const { user } = useAuth();
-  
+  const { user: singleUser } = useSingleUser("users", user?.uid);
   const myStories = data && data?.filter(story => story.userID === user.uid);
-  console.log(myStories);
+  const [greeting, setGreeting] = useState("");
   
+  const getGreeting = () => {
+    const now = new Date();
+    const hour = now.getHours();
+  
+    if (hour < 12) {
+      return <>Good morning <Sun /></>;
+    } else if (hour < 18) {
+      return <>Good afternoon<Clock12 /></>;
+    } else {
+      return <><MoonStar />Good evening</>;
+    }
+  };
+  useEffect(() => {
+    setGreeting(getGreeting());
+  }, []);
+
   return (
     <div>
       {
@@ -18,11 +37,14 @@ const MyStories = () => {
         <Loading /> :
         <div className="page-container">
           {loading && <Loading />}
-          <button 
-            className="btn"
-            onClick={() => navigate("/newstory")}>
-              Add a story
-          </button>
+          <div className="page-header">
+            <div className="greeting">{greeting} {singleUser?.username}</div>
+            <button 
+              className="btn"
+              onClick={() => navigate("/newstory")}>
+                Add a story
+            </button>
+          </div>
           {myStories.length === 0 && <div>You have no experiences or stories added yet</div>}
           <div className="story-container">
             <div className="story-holder">
