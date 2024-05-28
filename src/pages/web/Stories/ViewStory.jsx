@@ -82,7 +82,7 @@ const ViewStory = () => {
               className="act edit"
               onClick={() => navigate(`/editstory/${id}`)}
             >
-              <SquarePen />
+              <SquarePen /> 
             </div>
             <div 
               className="act del"
@@ -101,7 +101,7 @@ const ViewStory = () => {
         }
 
         <div className="insights-section">
-          <div className="insights-header">Insights</div>
+          <div className="insights-header">Story Insights</div>
           {
             insightsLoading? 
             "Loading..." :

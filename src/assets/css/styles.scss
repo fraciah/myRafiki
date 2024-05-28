@@ -13,13 +13,13 @@ $gray: #BBBBBB;
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    // background-color: #f9f9f9;
 }
 
 .app-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #f9f9f9;
     
     .main-content {
         flex: 1;
