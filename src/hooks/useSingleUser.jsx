@@ -20,7 +20,7 @@ const useSingleUser = (collectionName, id) => {
             }
         };
         getUser();
-    }, [db, id]);
+    }, [id, collectionName]);
 
     return {
         user,

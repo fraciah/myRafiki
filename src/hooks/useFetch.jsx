@@ -20,7 +20,7 @@ const useFetch = (collectionName) => {
             });
         };
         getData();
-    }, []);
+    }, [collectionName]);
   return {
     data,
     loading,

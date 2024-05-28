@@ -17,7 +17,7 @@ const Navbar = () => {
     if(authUser){
       setLoggedIn(true);
     }
-  }, [authUser])
+  }, [authUser, setLoggedIn])
 
   const logOut = async () => {
     await auth.signOut();

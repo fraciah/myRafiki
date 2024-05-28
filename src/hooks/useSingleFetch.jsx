@@ -21,7 +21,7 @@ const useSingleFetch = (collectionName, id, subCol) => {
       }
     };
     getSingleData();
-  }, [db, id]);
+  }, [id, collectionName, subCol]);
   return {
     data,
     loading,

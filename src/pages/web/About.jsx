@@ -7,7 +7,7 @@ const About = () => {
       <div>
         <div className="title">About myRafiki</div>
         <div>
-          At myRafiki, we believe in the power of community and shared experiences. Life can be challenging, and sometimes, it helps to know you’re not alone. Our platform is designed to provide a safe space where you can share your issues anonymously and receive support, advice, and solutions from others who care. We believe that everyone has a story to tell, and that by sharing our stories, we can help each other heal, grow, and thrive. 
+          At myRafiki, we believe in the power of community and shared experiences. Life can be challenging, and sometimes, it helps to know you&apos;re not alone. Our platform is designed to provide a safe space where you can share your issues anonymously and receive support, advice, and solutions from others who care. We believe that everyone has a story to tell, and that by sharing our stories, we can help each other heal, grow, and thrive. 
         </div>
       </div>
 
@@ -16,7 +16,7 @@ const About = () => {
         <div className="how-it-works">
           <div>
             <span>Post Anonymously: </span>
-            Share your concerns, questions, or challenges without revealing your identity. Whether you're dealing with personal, professional, or emotional issues, you can express yourself freely here.
+            Share your concerns, questions, or challenges without revealing your identity. Whether you&apos;re dealing with personal, professional, or emotional issues, you can express yourself freely here.
           </div>
           <div>
             <span>Get Support and Advice: </span>
@@ -31,7 +31,7 @@ const About = () => {
 
       <div>
         <div className="title">Our Mission</div>
-        <div>Our mission is to create a supportive and empathetic online environment where people can find the help they need. We understand that everyone’s journey is unique, and we are committed to fostering a community where diverse voices and experiences can come together to make a positive impact.</div>
+        <div>Our mission is to create a supportive and empathetic online environment where people can find the help they need. We understand that everyone&apos;s journey is unique, and we are committed to fostering a community where diverse voices and experiences can come together to make a positive impact.</div>
       </div>
 
       <Link to="/">Get started here</Link>
