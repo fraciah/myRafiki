@@ -3,10 +3,11 @@ import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import plc from "../../assets/images/plc.jpg";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const [ error, setError ] = useState("");
+  const { setLoggedIn } = useAuth();
 
   const navigate = useNavigate();
   const { register,
@@ -19,7 +20,8 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, userData.email, userData.password);
       console.log(userCredential);
-      navigate("/stories");
+      setLoggedIn(true);
+      navigate("/mystories");
     } 
     catch (error) {
       console.log(error);

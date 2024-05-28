@@ -86,6 +86,14 @@
 .navbar .nav-items .nav-item.active:hover {
   color: #6262A6;
 }
+.navbar .logout {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.navbar .logout:hover {
+  color: rgb(164, 164, 232);
+}
 
 .home .carousel {
   max-width: 100%;
@@ -95,7 +103,7 @@
   transition: all 200ms ease-in-out;
 }
 .home .carousel .carousel-item .img-holder {
-  height: 500px;
+  height: 70vh;
 }
 .home .carousel .carousel-item .img-holder img {
   width: 100%;
@@ -181,7 +189,7 @@
 }
 
 .auth-container {
-  background-image: url("../images/plc.jpg");
+  background-image: url("../images/auth.jpg");
   min-height: 600px;
   background-position: center;
   background-repeat: no-repeat;
@@ -198,7 +206,7 @@
   gap: 0.5rem;
   width: 50%;
   max-width: 800px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .auth-container .form .reg-title {
   font-size: 2rem;
@@ -215,8 +223,6 @@
 .auth-container .form .phoneNo-cont {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
   width: 100%;
 }
 .auth-container .form .phoneNo-cont .phone-input {
@@ -255,6 +261,14 @@
   font-size: 1rem;
   padding: 0.8rem 1.5rem;
 }
+.auth-container .form .disabled {
+  align-self: flex-start;
+  padding: 0.8rem 1.5rem;
+  background-color: rgb(172, 171, 171);
+  color: white;
+  border: none;
+  cursor: not-allowed;
+}
 .auth-container .form .redirect-auth {
   width: 100%;
   display: flex;
@@ -275,7 +289,7 @@
   margin-top: 1rem;
 }
 .page-container .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #6262A6;
 }
@@ -302,6 +316,8 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  font-weight: 600;
+  cursor: pointer;
 }
 .page-container .act {
   cursor: pointer;
@@ -412,6 +428,14 @@
   flex-direction: column;
   flex-basis: calc(50% - 0.5rem);
 }
+.page-container .how-it-works {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.page-container .how-it-works span {
+  font-weight: 600;
+}
 
 .insight-actions {
   display: flex;
@@ -505,23 +529,37 @@ footer .footer-content {
   width: 80%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
-footer .footer-content .logo-holder {
+footer .footer-content .footer-content-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+footer .footer-content .footer-content-top .logo-holder {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1rem 0;
 }
-footer .footer-content .logo-holder img {
-  width: 70px;
-  height: 50px;
+footer .footer-content .footer-content-top .logo-holder img {
+  width: 80px;
+  height: 55px;
 }
-footer .footer-content .socials {
+footer .footer-content .footer-content-top .quick-links {
+  display: flex;
+  gap: 2rem;
+}
+footer .footer-content .footer-content-top .quick-links .quick-link {
+  cursor: pointer;
+  color: black;
+  font-size: 1rem;
+}
+footer .footer-content .footer-content-top .socials {
   display: flex;
   gap: 1rem;
 }
-footer .footer-content .socials .social {
+footer .footer-content .footer-content-top .socials .social {
   cursor: pointer;
   color: black;
   font-size: 1.5rem;

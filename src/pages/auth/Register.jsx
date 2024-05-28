@@ -6,8 +6,8 @@ import { linkWithCredential, EmailAuthProvider } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
-import plc from "../../assets/images/plc.jpg";
 import { doc, setDoc } from "firebase/firestore";
+import africastalking from 'africastalking';   
 
 const Register = () => {
     const { register, control, watch, handleSubmit, formState: { errors }, } = useForm();
@@ -57,10 +57,10 @@ const Register = () => {
                 uid: auth.currentUser.uid,
                 email: userData.email,
                 phone: userData.phone,
+                username: userData.username,
                 is_verified: false,
-                displayName: auth.currentUser.displayName,
             });
-            console.log("User registered successfully");
+            console.log("User registered successfully",userData.phone);
             // console.log("smsAPI",userData.phone) SMS API
             navigate("/login");
         } 
@@ -85,24 +85,49 @@ const Register = () => {
         <form className="form" onSubmit={handleSubmit(onRegister)}>
             <div className="reg-title">Register</div>
             {error && <div className="error-message">{error}</div>}
-            <div className="error-message">{errors?.email?.message}</div>
-            <input {...register("email", {
-                required: "Please enter your email address"
-            })} 
-                className="auth-input input" 
-                type="text" 
-                placeholder="Enter your email"
-            />
-            <div className="error-message">{errors?.password?.message}</div>
-            <input {...register("password", {
-                required: "Please enter a password"
-            })} 
-                className="auth-input input" 
-                type="password" 
-                placeholder="Enter your password"
-            />
-            
+            <div>
+                <label htmlFor="">Username</label>
+                <div className="error-message">{errors?.username?.message}</div>
+                <input {...register("username", {
+                    required: "Please enter your username",
+                    minLength: {
+                        value: 4,
+                        message: 'Username must be at least 4 characters long',
+                    },
+                })}
+                    className="auth-input input" 
+                    type="text" 
+                    placeholder="Enter your username"
+                />
+            </div>
+            <div>
+                <label htmlFor="">Email</label>
+                <div className="error-message">{errors?.email?.message}</div>
+                <input {...register("email", {
+                    required: "Please enter your email address",
+                })} 
+                    className="auth-input input" 
+                    type="text" 
+                    placeholder="Enter your email"
+                />
+            </div>
+            <div>
+                <label htmlFor="">Password</label>
+                <div className="error-message">{errors?.password?.message}</div>
+                <input {...register("password", {
+                    required: "Please enter a password",
+                    minLength: {
+                        value: 6,
+                        message: 'Password must be at least 6 characters long',
+                    },
+                })} 
+                    className="auth-input input" 
+                    type="password" 
+                    placeholder="Enter your password"
+                />
+            </div>
             <div className="phoneNo-cont">
+                <label htmlFor="">Phone Number</label>
                 <div className="error-message">{errors.phone?.message}</div>
                 <div className="phone-input">
                     <Controller
@@ -131,7 +156,11 @@ const Register = () => {
                     </div>
                 </div>
             </div>
-            <button className="register btn">Register</button>
+            {phoneVerified ?
+                <button className="register btn">Register</button>
+                :
+                <button className="disabled" disabled>Register</button>
+            }
             <div className="redirect-auth">
                 <p>Already registered? <span onClick={() => navigate("/login")}>Login here</span></p>
             </div>

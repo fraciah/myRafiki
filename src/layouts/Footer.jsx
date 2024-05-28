@@ -7,24 +7,31 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-content">
-        <Link to="/" className="logo-holder">
-          <img src={logo} alt="logo" />
-        </Link>
-        <div className="socials">
-          <a 
-            className="social" 
-            href="https://github.com/fraciah"
-            target="_blank" rel="noopener noreferrer"
-          >
-              <Github />
-          </a>
-          <a 
-            className="social" 
-            href="https://ke.linkedin.com/in/fraciah-karagu-18b393204"
-            target="_blank" rel="noopener noreferrer"
-          >
-            <Linkedin />
-          </a>
+        <div className="footer-content-top">
+          <Link to="/" className="logo-holder">
+            <img src={logo} alt="logo" />
+          </Link>
+          <div className="quick-links">
+            <Link className="quick-link" to="/about">About</Link>
+            <Link className="quick-link" to="/wellness-insights">Wellness Insights</Link>
+            <Link className="quick-link" to="/wellness-videos">Wellness Videos</Link>
+          </div>
+          <div className="socials">
+            <a 
+              className="social" 
+              href="https://github.com/fraciah"
+              target="_blank" rel="noopener noreferrer"
+            >
+                <Github />
+            </a>
+            <a 
+              className="social" 
+              href="https://ke.linkedin.com/in/fraciah-karagu-18b393204"
+              target="_blank" rel="noopener noreferrer"
+            >
+              <Linkedin />
+            </a>
+          </div>
         </div>
         <a 
           href="https://github.com/fraciah" 

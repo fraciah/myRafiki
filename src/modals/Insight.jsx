@@ -3,9 +3,11 @@ import { useState } from "react";
 import { db } from "../firebase";
 import useAuth from "../hooks/useAuth";
 import { X } from "lucide-react";
+import useSingleUser from "../hooks/useSingleUser";
 
 const Insight = ({setShowInsight, storyId, insightId, initialInsightText}) => {
     const { user } = useAuth();
+    const { user:singleUser } = useSingleUser("users", user?.uid);
     const [insight, setInsight] = useState(initialInsightText || "");
     const [error, setError] = useState("");
 
@@ -30,13 +32,13 @@ const Insight = ({setShowInsight, storyId, insightId, initialInsightText}) => {
                     await addDoc(insightRef, {
                         insightText: insight,
                         userID: user.uid,
+                        username: singleUser.username,
                         createdAt: Date.now(),
                         updatedAt: null,
                     });
                     alert("Insight added successfully");
                 }
                 setShowInsight(false);
-                // SMS API
             }
         }
         catch(error){

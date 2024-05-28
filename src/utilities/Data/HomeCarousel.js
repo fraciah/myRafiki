@@ -7,21 +7,21 @@ export const homeCarousel = [
     {
         id: 1,
         img: carousel1,
-        desc: "This is the first description. First description",
+        desc: "Connect with others to face life's challenges together.",
     },
     {
         id: 2,
         img: carousel2,
-        desc: "This is the second description. Second description",
+        desc: "Discover insights for enhancing your well-being.",
     },
     {
         id: 3,
         img: carousel3,
-        desc: "This is the third description. Third description",
+        desc: "Embark on a journey of growth and self-discovery.",
     },
     {
         id: 4,
         img: carousel4,
-        desc: "This is the fourth description. Fourth description",
+        desc: "Empower yourself on your mental wellness journey.",
     },
 ];

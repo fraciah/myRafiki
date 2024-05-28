@@ -112,16 +112,19 @@ const ViewStory = () => {
               insights?.map(insight => {
                 const insightUser = users && users.find(user => user.id === insight.userID);
                 return (
-                  <div className="insight-holder">
+                  <div  key={insight?.id} className="insight-holder">
                     <div 
                       key={insight?.id}
                       className="insight">
                         {error && <div className="error-message">{error}</div>}
                       {
-                        insightUser?.is_verified && 
-                        <div className="insight-user">{insightUser?.displayName}
-                          <BadgeCheck style={{color: "#6262A6"}}/>
-                        </div> 
+                        insight?.username &&
+                        <div className="insight-user">
+                          {insight?.username}
+                          {insightUser?.is_verified && 
+                            <BadgeCheck 
+                              style={{width: "16px"}}/>}
+                        </div>
                       }
                       <div className="insight-text">{insight?.insightText}</div>
                       <div>

@@ -107,6 +107,15 @@ $gray: #BBBBBB;
             }
         }
     }
+    .logout {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
 }
 
 .home {
@@ -118,7 +127,8 @@ $gray: #BBBBBB;
             transition: all 200ms ease-in-out;
 
             .img-holder {
-                height: 500px;
+                // height: 526px;
+                height: 70vh;
 
                 img {
                     width: 100%;
@@ -134,7 +144,6 @@ $gray: #BBBBBB;
                 margin-left: 1rem;
                 position: absolute; 
                 top: 30%;
-                // background-color: rgba(0, 0, 0, 0.5);
                 color: white;
                 padding: 0.5rem;
                 width: 50%;
@@ -218,7 +227,7 @@ $gray: #BBBBBB;
 }
 
 .auth-container {
-    background-image: url("../images/plc.jpg");
+    background-image: url("../images/auth.jpg");
     min-height: 600px;
     background-position: center;
     background-repeat: no-repeat;
@@ -235,7 +244,7 @@ $gray: #BBBBBB;
         gap: 0.5rem;
         width: 50%;
         max-width: 800px;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.8);
 
         .reg-title {
             font-size: 2rem;
@@ -254,8 +263,8 @@ $gray: #BBBBBB;
         .phoneNo-cont {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 0.4rem;
+            // align-items: center;
+            // gap: 0.4rem;
             width: 100%;
 
             .phone-input {
@@ -301,6 +310,14 @@ $gray: #BBBBBB;
             font-size: 1rem;
             padding: 0.8rem 1.5rem;
         }
+        .disabled {
+            align-self: flex-start;
+            padding: 0.8rem 1.5rem;
+            background-color: rgb(172, 171, 171);
+            color: white;
+            border: none;
+            cursor: not-allowed;
+        }
         .redirect-auth {
             width: 100%;
             display: flex;
@@ -324,7 +341,7 @@ $gray: #BBBBBB;
     margin-top: 1rem;
 
     .title {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 600;
         color: $primary-color-hover;
     }
@@ -356,6 +373,8 @@ $gray: #BBBBBB;
         display: flex;
         gap: 0.5rem;
         align-items: center;
+        font-weight: 600;
+        cursor: pointer;
     }
 
     .act {
@@ -491,6 +510,16 @@ $gray: #BBBBBB;
             }
         }
     }
+
+    .how-it-works {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        span {
+            font-weight: 600;
+        }
+    }
 }
 .insight-actions {
     display: flex;
@@ -593,28 +622,45 @@ footer{
         width: 80%;
         display: flex;
         flex-direction: column;
-        align-items: center;
 
-        .logo-holder {
+        .footer-content-top {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem 0;
+            justify-content: space-between;
+            padding: 0 1rem;
 
-            img {
-                width: 70px;
-                height: 50px;
+            .logo-holder {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 0;
+
+                img {
+                    width: 80px;
+                    height: 55px;
+                }
             }
-        }
 
-        .socials {
-            display: flex;
-            gap: 1rem;
+            .quick-links {
+                display: flex;
+                gap: 2rem;
 
-            .social {
-                cursor: pointer;
-                color: black;
-                font-size: 1.5rem;
+                .quick-link {
+                    cursor: pointer;
+                    color: black;
+                    font-size: 1rem;
+                }
+            }
+
+            .socials {
+                display: flex;
+                gap: 1rem;
+
+                .social {
+                    cursor: pointer;
+                    color: black;
+                    font-size: 1.5rem;
+                }
             }
         }
 
