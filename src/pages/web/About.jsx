@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div className="page-container linear">
+    <div className="page-container">
 
       <div>
         <div className="title">About myRafiki</div>

@@ -71,6 +71,7 @@ $gray: #BBBBBB;
     .logo-holder {
         display: flex;
         align-items: center;
+        margin-right: auto;
         
         img{
             max-width: 100%;
@@ -82,26 +83,30 @@ $gray: #BBBBBB;
         padding: 1rem 0;
         display: flex;
         gap: 2rem;
+
         
         .nav-item {
             text-decoration: none;
-
+            
             &.inactive {
                 color: #000;
-
+                
                 &:hover {
                     color: gray;
                 }
             }
-
+            
             &.active {
                 color: $primary-color;
-
+                
                 &:hover {
                     color: $primary-color-hover;
                 }
             }
         }
+    }
+    .nav-icon {
+        display: none;
     }
     .logout {
         display: flex;
@@ -616,7 +621,7 @@ footer{
     width: 100%;
     padding: 1rem 0;
     border-top: 1px solid #f0f0f0;
-    background: #f0f0f0;
+    background: #e7e7e7;
 
     a {
         text-decoration: none;
@@ -680,3 +685,68 @@ footer{
         }
     }
 }
+
+@media screen and (max-width: 1000px) {
+    .navbar {
+        
+        .logo-holder {
+            margin-left: 1rem;
+        }
+        
+        // .nav-items {
+        //     background-color: red;
+        // }
+    }
+}
+
+@media screen and (max-width: 728px) {
+    .navbar {
+        padding: 0.3rem 0;
+        flex-direction: column;
+
+        .logo-holder {
+            img {
+                height: 34px;
+            }
+        }
+        
+        .nav-items {
+            // background-color: orange;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 0.5rem;
+            border-top: 1px solid $gray;
+
+            &.hide {
+                display: none;
+            }
+
+            &.show {
+                display: flex;
+            }
+
+        }
+        .nav-icon {
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 10px;                
+        }
+    }
+}
+
+// @media screen and (max-width: 650px) {
+//     .navbar {
+//         .nav-items {
+//             background-color: yellow;
+//         }
+//     }
+// }
+// @media screen and (max-width: 350px) {
+//     .navbar {
+//         .nav-items {
+//             background-color: green;
+//         }
+//     }
+// }

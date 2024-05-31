@@ -62,6 +62,7 @@
 .navbar .logo-holder {
   display: flex;
   align-items: center;
+  margin-right: auto;
 }
 .navbar .logo-holder img {
   max-width: 100%;
@@ -86,6 +87,9 @@
 }
 .navbar .nav-items .nav-item.active:hover {
   color: #6262A6;
+}
+.navbar .nav-icon {
+  display: none;
 }
 .navbar .logout {
   display: flex;
@@ -531,7 +535,7 @@ footer {
   width: 100%;
   padding: 1rem 0;
   border-top: 1px solid #f0f0f0;
-  background: #f0f0f0;
+  background: #e7e7e7;
 }
 footer a {
   text-decoration: none;
@@ -584,4 +588,38 @@ footer .footer-content .tag {
   padding: 1rem 0;
   text-align: center;
   border-top: 1px solid #000;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar .logo-holder {
+    margin-left: 1rem;
+  }
+}
+@media screen and (max-width: 728px) {
+  .navbar {
+    padding: 0.3rem 0;
+    flex-direction: column;
+  }
+  .navbar .logo-holder img {
+    height: 34px;
+  }
+  .navbar .nav-items {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+    border-top: 1px solid #BBBBBB;
+  }
+  .navbar .nav-items.hide {
+    display: none;
+  }
+  .navbar .nav-items.show {
+    display: flex;
+  }
+  .navbar .nav-icon {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 }/*# sourceMappingURL=styles.css.map */
