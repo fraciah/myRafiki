@@ -3,11 +3,9 @@ import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const [ error, setError ] = useState("");
-  const { setLoggedIn } = useAuth();
 
   const navigate = useNavigate();
   const { register,
@@ -19,8 +17,10 @@ const Login = () => {
   const onLogin = async(userData) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, userData.email, userData.password);
-      console.log(userCredential);
-      setLoggedIn(true);
+      const user = userCredential.user;
+      localStorage.setItem("token", user.accessToken);
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("isLoggedIn", "true");
       navigate("/mystories");
     } 
     catch (error) {

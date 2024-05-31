@@ -19,9 +19,9 @@ const MyStories = () => {
     const hour = now.getHours();
   
     if (hour < 12) {
-      return <>Good morning <Sun /></>;
+      return <><Sun />Good morning</>;
     } else if (hour < 18) {
-      return <>Good afternoon<Clock12 /></>;
+      return <><Clock12 />Good afternoon</>;
     } else {
       return <><MoonStar />Good evening</>;
     }
