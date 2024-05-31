@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-        <Link className="logo-holder" to="/">
+        <Link className="logo-holder" to="/" onClick={closeNav}>
           <img src={logo} alt="logo" />
         </Link>
           {navOpen ? (

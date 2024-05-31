@@ -622,4 +622,28 @@ footer .footer-content .tag {
     top: 10px;
     right: 10px;
   }
+  .footer-content-top {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 650px) {
+  footer {
+    padding: 0.5rem 0;
+  }
+  footer .footer-content {
+    width: 100%;
+  }
+  footer .footer-content .footer-content-top {
+    padding: 0;
+  }
+  footer .footer-content .footer-content-top .quick-links {
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  .quick-links {
+    flex-direction: column;
+    align-items: center;
+  }
 }/*# sourceMappingURL=styles.css.map */
