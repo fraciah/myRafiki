@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import useAuth from '../../../hooks/useAuth';
+import DOMPurify from 'dompurify';
 
 const NewStory = () => {
     const { user } = useAuth();
@@ -13,6 +14,12 @@ const NewStory = () => {
     const [story, setStory] = useState(""); 
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+
+    const sanitizeAndStripTags = (html) => {
+        const cleanHtml = DOMPurify.sanitize(html);
+        const strippedHtml = cleanHtml.replace(/<\/?p>/g, '').replace(/<\/?h[1-6]>/g, '');
+        return strippedHtml;
+    };
 
     const AddStory = async () => {
         setLoading(true);
@@ -31,16 +38,15 @@ const NewStory = () => {
             }
             setError("");
 
-            const storyWithoutPTags = story.replace(/<\/?p>/g, '');
+            const sanitizedStory = sanitizeAndStripTags(story);
 
             //add story to firestore
             const collections = collection(db, "stories");
             await addDoc(collections, {
                 userID : user.uid,
                 userEmail: user.email,
-                userPhone: user.phoneNumber,
                 title: title,  
-                story: storyWithoutPTags,
+                story: sanitizedStory,
                 createdAt: Date.now(),
                 updatedAt: null,
                 pageViews: 0,

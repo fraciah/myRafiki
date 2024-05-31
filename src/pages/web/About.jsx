@@ -24,7 +24,7 @@ const About = () => {
           </div>
           <div>
             <span>Wellness Resources: </span>
-            Explore a curated collection of uplifting quotes that serve as daily reminders of self-care, resilience, and positivity. Delve deeper into topics such as mindfulness, stress relief, and personal development with our carefully curated selection of videos
+            Explore a curated collection of uplifting quotes that serve as daily reminders of self-care, resilience, and positivity. Delve deeper into topics such as mindfulness, stress relief, and personal development with our carefully curated selection of videos.
           </div>
         </div>
       </div>

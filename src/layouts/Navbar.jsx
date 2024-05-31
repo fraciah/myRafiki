@@ -37,7 +37,7 @@ const Navbar = () => {
         {isLoggedIn && 
           (
             <div className="nav-item logout" onClick={logOut}>
-              Logout <LogOut size={18} />
+              <LogOut size={18} /> Logout 
             </div>
           )
         }
