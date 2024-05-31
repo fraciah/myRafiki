@@ -1,5 +1,5 @@
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import useFetch from '../../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -85,11 +85,17 @@ const EditStory = () => {
                 placeholder="Title" 
                 className="story-title"
             />
-            <ReactQuill 
-                theme="snow" 
-                value={story} 
-                onChange={setStory}
-                placeholder="Tell your story..." />
+            <CKEditor
+                editor={ ClassicEditor }
+                data={story}
+                onChange={ ( event, editor ) => {
+                    const data = editor.getData();
+                    setStory(data);
+                }}
+                config={{
+                    placeholder: 'Tell your story...'
+                }}
+            />
         </div>
     </div>
   )

@@ -1,5 +1,5 @@
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addDoc, collection } from 'firebase/firestore';
@@ -76,11 +76,20 @@ const NewStory = () => {
                 placeholder="Title" 
                 className="story-title"
             />
-            <ReactQuill 
-                theme="snow" 
-                value={story} 
-                onChange={setStory}
-                placeholder="Tell your story..." />
+            <CKEditor
+                editor={ ClassicEditor }
+                data={story}
+                onChange={ ( event, editor ) => {
+                    const data = editor.getData();
+                    setStory(data);
+                }}
+                config={{
+                    placeholder: 'Tell your story...'
+                }}
+                // onReady={ editor => {console.log( 'Editor is ready to use!', editor );} }
+                // onBlur={ ( event, editor ) => {console.log( 'Blur.', editor );}}
+                // onFocus={ ( event, editor ) => {console.log( 'Focus.', editor );} }
+            />
         </div>
     </div>
     </>
