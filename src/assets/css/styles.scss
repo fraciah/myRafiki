@@ -622,7 +622,7 @@ footer{
     padding: 1rem 0;
     border-top: 1px solid #f0f0f0;
     background: #e7e7e7;
-
+    
     a {
         text-decoration: none;
     }
@@ -637,12 +637,10 @@ footer{
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 1rem;
 
             .logo-holder {
                 display: flex;
                 align-items: center;
-                gap: 1rem;
                 padding: 1rem 0;
 
                 img {
@@ -751,18 +749,24 @@ footer{
         }
     }
 
-    .footer-content-top {
-        // background-color: orange;
-        flex-direction: column;
-        gap: 1rem;
+    footer {
+        padding: 0.5rem 0;
+
+        .footer-content-top {
+            // background-color: orange;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
     }
-}
+
+    }
 
 @media screen and (max-width: 650px) {
     .home {
         .carousel {
             .carousel-item {
                 .carousel-item-content {
+                    top: 25%;
                     width: 90%;
 
                     .desc {
