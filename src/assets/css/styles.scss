@@ -691,12 +691,20 @@ footer{
         
         .logo-holder {
             margin-left: 1rem;
-        }
-        
-        // .nav-items {
-        //     background-color: red;
-        // }
+        }  
     }
+    .home {
+        .carousel {
+            .carousel-item {
+                .carousel-item-content {
+                    width: 70%;
+                }
+            }
+        }
+    }
+    // .footer-content-top{
+    //     background-color: red;
+    // }
 }
 
 @media screen and (max-width: 728px) {
@@ -711,7 +719,6 @@ footer{
         }
         
         .nav-items {
-            // background-color: orange;
             width: 100%;
             flex-direction: column;
             align-items: center;
@@ -734,26 +741,46 @@ footer{
             right: 10px;                
         }
     }
+    .home {
+        .carousel {
+            .carousel-item {
+                .carousel-item-content {
+                    width: 80%;
+                }
+            }
+        }
+    }
+
     .footer-content-top {
+        // background-color: orange;
         flex-direction: column;
         gap: 1rem;
     }
 }
 
 @media screen and (max-width: 650px) {
-    // .navbar {
-    //     .nav-items {
-    //         background-color: yellow;
-    //     }
-    // }
+    .home {
+        .carousel {
+            .carousel-item {
+                .carousel-item-content {
+                    width: 90%;
+
+                    .desc {
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
 
     footer {
         padding: 0.5rem 0;
-
+        
         .footer-content {
             width: 100%;
-    
+            
             .footer-content-top {
+                // background-color: yellow;
                 padding: 0;
         
                 .quick-links {
@@ -765,12 +792,25 @@ footer{
 }
 
 @media screen and (max-width: 350px) {
-    // .navbar {
-    //     .nav-items {
-    //         background-color: green;
-    //     }
-    // }
+    .home {
+        .carousel {
+            .carousel-item {
+                .carousel-item-content {
+                    width: 100%;
+
+                    .desc {
+                        font-size: 2rem;
+                    }
+                    .auth {
+                        flex-direction: column;
+                        gap: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
     .quick-links {
+        // background-color: green;
         flex-direction: column;
         align-items: center;
     }

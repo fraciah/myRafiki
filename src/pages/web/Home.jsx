@@ -21,7 +21,7 @@ const Home = () => {
             <img src={homeCarousel[currentSlide].img} alt="carousel" />
           </div>
           <div className="carousel-item-content">
-            <p className="desc">{homeCarousel[currentSlide].desc}</p>
+            <div className="desc">{homeCarousel[currentSlide].desc}</div>
             <div className="auth">
               <button className="btn" onClick={() => navigate("/register")}>Register</button>
               <button className="btn" onClick={() => navigate("/login")}>Login</button>
