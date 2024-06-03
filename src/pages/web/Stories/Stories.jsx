@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 const Stories = () => {
   const { data, loading } = useFetch("stories");
-
-  console.log("All sstories",data);
   return (
     <div>
       {

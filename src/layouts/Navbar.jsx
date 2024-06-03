@@ -34,7 +34,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-        <Link className="logo-holder" to="/" onClick={closeNav}>
+        <Link className="logo-holder"
+              to={isLoggedIn ? "/mystories" : "/"}
+              onClick={closeNav}>
           <img src={logo} alt="logo" />
         </Link>
           {navOpen ? (

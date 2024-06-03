@@ -24,7 +24,6 @@ const ViewStory = () => {
   const [initialInsightText, setInitialInsightText] = useState(""); 
   const navigate = useNavigate();
   const story = data && data.find(story => story.id === id);
-  console.log("insights", insights)
   
   const removeInsight = async(insightId) =>{
     try{

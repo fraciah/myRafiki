@@ -4,11 +4,15 @@ import { Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  
   return (
     <footer>
       <div className="footer-content">
         <div className="footer-content-top">
-          <Link to="/" className="logo-holder">
+          <Link 
+            to={isLoggedIn ? "/mystories" : "/"}
+            className="logo-holder">
             <img src={logo} alt="logo" />
           </Link>
           <div className="quick-links">
