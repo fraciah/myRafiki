@@ -45,6 +45,7 @@ const MyStories = () => {
                 Add a story
             </button>
           </div>
+          <div className="title">My Stories</div>
           {myStories.length === 0 && <div>You have no experiences or stories added yet</div>}
           <div className="story-container">
             <div className="story-holder">
