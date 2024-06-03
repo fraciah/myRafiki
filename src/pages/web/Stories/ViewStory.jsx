@@ -48,30 +48,28 @@ const ViewStory = () => {
               insightId={insightId}
               initialInsightText={initialInsightText}
           />}
-        <div className="story-header">
-          <div className="story-left">
-            <h2 className="story-title">{story?.title}</h2> 
-            <div>
-              {
-              story?.updatedAt? 
-              <span>Updated {moment(story?.updatedAt).fromNow()}</span> : 
-              <span>Created {moment(story?.createdAt).fromNow()}</span>
-              }
-            </div>
+        <div 
+          onClick={() => {
+            setShowInsight(true);
+            setInsightId(null);
+            setInitialInsightText("");
+          }}
+          className="insights btn"
+        >
+          <div className="insight-icon">
+            <MessageCircle />
+            {insights.length? insights.length : "0"}
           </div>
-          <div 
-            onClick={() => {
-              setShowInsight(true);
-              setInsightId(null);
-              setInitialInsightText("");
-            }}
-            className="insights btn"
-          >
-            <div className="insight-icon">
-              <MessageCircle />
-              {insights.length? insights.length : "0"}
-            </div>
-            Share an Insight
+          Share an Insight
+        </div>
+        <div className="story-left">
+          <h2 className="story-title">{story?.title}</h2> 
+          <div>
+            {
+            story?.updatedAt? 
+            <span>Updated {moment(story?.updatedAt).fromNow()}</span> : 
+            <span>Created {moment(story?.createdAt).fromNow()}</span>
+            }
           </div>
         </div>
         <p className="story-content">{story?.story}</p>

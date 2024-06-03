@@ -4,7 +4,7 @@ const WellnessInsights = () => {
   const { data, isLoading } = RqQuotes();
 
   return (
-    <div className="page-container linear">
+    <div className="page-container">
       <div className="title">Wellness Insights</div>
       {isLoading && <p>Loading...</p>}
       {data ? (

@@ -20,6 +20,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     localStorage.removeItem("isLoggedIn");
+    closeNav();
     navigate("/");
   };
 
@@ -64,14 +65,14 @@ const Navbar = () => {
             to="/about"
             onClick={closeNav}>About</Link>
           {singleUser?.is_verified && <Link className="nav-item inactive" to="/insights">Insights</Link>}
+          {isLoggedIn && 
+            (
+              <div className="nav-item logout" onClick={logOut}>
+                <LogOut size={18} /> Logout 
+              </div>
+            )
+          }
         </div>
-        {isLoggedIn && 
-          (
-            <div className="nav-item logout" onClick={logOut}>
-              <LogOut size={18} /> Logout 
-            </div>
-          )
-        }
     </nav>
   )
 }

@@ -235,7 +235,7 @@ $gray: #BBBBBB;
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 2rem;
     
     .form {
@@ -244,7 +244,6 @@ $gray: #BBBBBB;
         flex-direction: column;
         gap: 0.5rem;
         width: 50%;
-        max-width: 800px;
         background-color: rgba(255, 255, 255, 0.8);
 
         .reg-title {
@@ -261,61 +260,9 @@ $gray: #BBBBBB;
             width: 100%;
         }
 
-        .phoneNo-cont {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-
-            .phone-input {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-
-                .send-otp {
-                    width: 20%;
-                    text-align: center;
-                }
-            }
-
-            .phone-verify {
-                display: flex;
-                gap: 1rem;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                margin-top: 1rem;
-
-                .recaptcha {
-                    width: 50%;
-                }
-
-                .otp-cont {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.4rem;
-                    width: 50%;
-
-                    .btn {
-                        text-align: center;
-                        width: 100%;
-                    }
-                }
-            }
-        }
-
         .register {
             font-size: 1rem;
             padding: 0.8rem 1.5rem;
-        }
-        .disabled {
-            align-self: flex-start;
-            padding: 0.8rem 1.5rem;
-            background-color: rgb(172, 171, 171);
-            color: white;
-            border: none;
-            cursor: not-allowed;
         }
         .redirect-auth {
             width: 100%;
@@ -357,25 +304,22 @@ $gray: #BBBBBB;
         color: $primary-color-hover;
     }
 
-    .story-header {
+    .story-left {
+        gap: 1rem;
+    }
+
+    .insights {
         display: flex;
-        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+        align-self: flex-end;
 
-        .story-left {
-            gap: 1rem;
-        }
-
-        .insights {
+        .insight-icon {
             display: flex;
-            gap: 1rem;
             align-items: center;
-
-            .insight-icon {
-                display: flex;
-                align-items: center;
-            }
         }
     }
+
     .story-content {
         word-wrap: break-word;
     }
@@ -459,16 +403,15 @@ $gray: #BBBBBB;
         border: none;
         font-size: 1rem;
         cursor: pointer;
-        background: #fff;
+        background: #f9f9f9;
 
         &:hover {
             color: $primary-color;
         }
     }
-    .edit-actions {
+    .story-actions {
         display: flex;
         gap: 1rem;
-
     }
     
     .new-story-content{
@@ -700,6 +643,24 @@ footer{
             }
         }
     }
+    .auth-container {
+        .form {
+            width: 70%;
+        }
+    }
+
+    .page-container {
+        width: 90%;
+
+        .new-story-content {
+            margin: 0.5rem 0;
+
+            .story-title {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
     // .footer-content-top{
     //     background-color: red;
     // }
@@ -722,6 +683,7 @@ footer{
             align-items: center;
             margin-top: 0.5rem;
             border-top: 1px solid $gray;
+            gap: 1rem;
 
             &.hide {
                 display: none;
@@ -739,11 +701,32 @@ footer{
             right: 10px;                
         }
     }
+
     .home {
         .carousel {
             .carousel-item {
                 .carousel-item-content {
                     width: 80%;
+                }
+            }
+        }
+    }
+
+    .page-container {
+        margin-top: 0.5rem;
+
+        .story-container {
+            .story-holder {
+                .story {
+                    .story-title {
+                        font-size: 1.2rem;
+                    }
+                    .story-story {
+                        font-size: 0.9rem;
+                    }
+                    .story-views {
+                        font-size: 0.7rem;
+                    }
                 }
             }
         }
@@ -762,6 +745,11 @@ footer{
     }
 
 @media screen and (max-width: 650px) {
+    .btn {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+    }
+
     .home {
         .carousel {
             .carousel-item {
@@ -772,6 +760,77 @@ footer{
                     .desc {
                         font-size: 2.5rem;
                     }
+                }
+            }
+        }
+    }
+
+    .auth-container {
+        .form {
+            width: 90%;
+
+            .reg-title {
+                font-size: 1.5rem;
+            }
+            .register {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    }
+
+    .page-container {
+        .page-header {
+            flex-direction: column;
+            gap: 1rem;
+
+            .btn {
+                align-self: flex-end;
+            }
+        }
+
+        .story-container {
+            .story-holder {
+                .story {
+                    flex-basis: 100%;
+                }
+            }
+        }
+
+        .story-left {
+            .story-title {
+                font-size: 1.2rem;
+            }
+            span {
+                font-size: 0.8rem;
+            }
+        }
+
+        .insights {
+            gap: 0.5rem;
+        }
+
+        .story-content {
+            font-size: 0.9rem;
+        }
+
+        .story-views {
+            font-size: 0.7rem;
+        }
+
+        .insights-section {
+            .insights-header {
+                font-size: 1.2rem;
+            }
+            .no-insights {
+                font-size: 0.9rem;
+            }
+        }
+
+        .vid-container {
+            .vid-holder {
+                .vid {
+                    flex-basis: 100%;
                 }
             }
         }

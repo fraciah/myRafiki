@@ -71,7 +71,7 @@ const EditStory = () => {
 
     return (
         <div className="page-container">
-            <div className="edit-actions">
+            <div className="story-actions">
                 <button 
                     onClick={handleEditStory} 
                     className="btn"

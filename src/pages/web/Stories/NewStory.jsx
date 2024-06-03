@@ -68,11 +68,17 @@ const NewStory = () => {
   return (
     <>
     <div className="page-container">
-        <button 
-            onClick={AddStory} 
-            className="btn">
-                {loading ? "Loading..." : "Share"}
-        </button>
+        <div className="story-actions">
+            <button 
+                onClick={AddStory} 
+                className="btn">
+                    {loading ? "Loading..." : "Share"}
+            </button>
+            <button 
+                onClick={() => navigate("/mystories")}
+                className="cancel"
+            >Cancel</button>
+        </div>
         {error && <div className="error-message">{error}</div>}
         <div className="new-story-content">
             <input 
@@ -92,9 +98,6 @@ const NewStory = () => {
                 config={{
                     placeholder: 'Tell your story...'
                 }}
-                // onReady={ editor => {console.log( 'Editor is ready to use!', editor );} }
-                // onBlur={ ( event, editor ) => {console.log( 'Blur.', editor );}}
-                // onFocus={ ( event, editor ) => {console.log( 'Focus.', editor );} }
             />
         </div>
     </div>
