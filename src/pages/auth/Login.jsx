@@ -35,28 +35,41 @@ const Login = () => {
     }
   }
 
+  const resetPassword = () => {
+    navigate("/reset-password");
+  };
+
   return (
     <div className="auth-container">
       <form className="form" onSubmit={handleSubmit(onLogin)}>
         <div className="reg-title">Login</div>
         {error && <div className="error-message">{error}</div>}
-        <div className="error-message">{errors?.email?.message}</div>
-        <input {...register("email", {
-                  required: "Please enter your email"
-              })} 
-                  className="auth-input input" 
-                  type="text" 
-                  placeholder="Enter your email"
-          />
-        <div className="error-message">{errors?.password?.message}</div>
-        <input {...register("password", {
-                  required: "Please enter a password"
-              })} 
-                  className="auth-input input" 
-                  type="password" 
-                  placeholder="Enter your password"
-              />
-        <button className="btn">Login</button>
+        <div>
+          <label htmlFor="">Email</label>
+          <div className="error-message">{errors?.email?.message}</div>
+          <input {...register("email", {
+                    required: "Please enter your email"
+                })} 
+                    className="auth-input input" 
+                    type="text" 
+                    placeholder="Enter your email"
+            />
+        </div>
+        <div>
+          <label htmlFor="">Password</label>
+          <div className="error-message">{errors?.password?.message}</div>
+          <input {...register("password", {
+                    required: "Please enter a password"
+                })} 
+                    className="auth-input input" 
+                    type="password" 
+                    placeholder="Enter your password"
+                />
+        </div>
+        <div className="auth-btn-container">
+          <button className="btn">Login</button>
+          <div onClick={resetPassword} className="forgot-password">Forgot Password</div>
+        </div>
         <div className="redirect-auth">
             <p>Not registered? <span onClick={() => navigate("/register")}>Register here</span></p>
         </div>

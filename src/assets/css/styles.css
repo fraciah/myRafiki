@@ -237,6 +237,17 @@
   text-decoration: underline;
   cursor: pointer;
 }
+.auth-container .form .auth-btn-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.auth-container .form .auth-btn-container .forgot-password {
+  cursor: pointer;
+}
+.auth-container .form .auth-btn-container .forgot-password:hover {
+  text-decoration: underline;
+}
 
 .page-container {
   width: 80%;
@@ -611,10 +622,6 @@ footer .footer-content .tag {
   }
 }
 @media screen and (max-width: 650px) {
-  .btn {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
-  }
   .home .carousel .carousel-item .carousel-item-content {
     top: 25%;
     width: 90%;
@@ -687,6 +694,10 @@ footer .footer-content .tag {
     font-size: 2rem;
   }
   .home .carousel .carousel-item .carousel-item-content .auth {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .auth-btn-container {
     flex-direction: column;
     gap: 0.5rem;
   }

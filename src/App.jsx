@@ -17,6 +17,7 @@ function App() {
               {route.path === "/" ||
                 route.path === "/register" ||
                 route.path === "/login" ||
+                route.path === "/reset-password" ||
                 route.path === "/about" ||
                 route.path === "/wellness-insights" ||
                 route.path === "/wellness-videos" ||

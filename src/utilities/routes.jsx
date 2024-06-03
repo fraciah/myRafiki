@@ -9,6 +9,7 @@ import ViewStory from "../pages/web/Stories/ViewStory";
 import EditStory from "../pages/web/Stories/EditStory";
 import WellnessVideos from "../pages/web/WellnessVideos";
 import WellnessInsights from "../pages/web/WellnessInsights";
+import ResetPassword from "../pages/auth/ResetPassword";
 import Error404 from "../pages/error/Error404";
 
 export default [
@@ -55,6 +56,10 @@ export default [
     {
         path: "/wellness-videos",
         element: WellnessVideos,
+    },
+    {
+        path: "/reset-password",
+        element: ResetPassword,
     },
     {
         path: "*",
