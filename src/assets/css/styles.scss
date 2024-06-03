@@ -493,6 +493,10 @@ $gray: #BBBBBB;
     gap: 1rem;
 }
 
+.reset-input {
+    width: 50%;
+}
+
 .overlay {
     position: fixed;
     top: 0;
@@ -674,6 +678,10 @@ footer{
         }
     }
 
+    .reset-input {
+        width: 70%;
+    }
+
     // .footer-content-top{
     //     background-color: red;
     // }
@@ -743,6 +751,10 @@ footer{
                 }
             }
         }
+    }
+
+    .reset-input {
+        width: 80%;
     }
 
     footer {
@@ -849,6 +861,10 @@ footer{
         }
     }
 
+    .reset-input {
+        width: 90%;
+    }
+
     footer {
         padding: 0.5rem 0;
         
@@ -889,6 +905,10 @@ footer{
     .auth-btn-container {
         flex-direction: column;
         gap: 0.5rem;
+    }
+
+    .reset-input {
+        width: 100%;
     }
 
     .quick-links {

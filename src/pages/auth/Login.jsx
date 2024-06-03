@@ -35,10 +35,6 @@ const Login = () => {
     }
   }
 
-  const resetPassword = () => {
-    navigate("/reset-password");
-  };
-
   return (
     <div className="auth-container">
       <form className="form" onSubmit={handleSubmit(onLogin)}>
@@ -68,7 +64,7 @@ const Login = () => {
         </div>
         <div className="auth-btn-container">
           <button className="btn">Login</button>
-          <div onClick={resetPassword} className="forgot-password">Forgot Password</div>
+          <div onClick={() => navigate("/reset-password")} className="forgot-password">Forgot Password</div>
         </div>
         <div className="redirect-auth">
             <p>Not registered? <span onClick={() => navigate("/register")}>Register here</span></p>

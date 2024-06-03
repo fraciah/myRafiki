@@ -10,11 +10,9 @@ const Footer = () => {
     <footer>
       <div className="footer-content">
         <div className="footer-content-top">
-          <Link 
-            to={isLoggedIn ? "/mystories" : "/"}
-            className="logo-holder">
+          <div className="logo-holder">
             <img src={logo} alt="logo" />
-          </Link>
+          </div>
           <div className="quick-links">
             <Link className="quick-link" to="/about">About</Link>
             <Link className="quick-link" to="/wellness-insights">Wellness Insights</Link>
