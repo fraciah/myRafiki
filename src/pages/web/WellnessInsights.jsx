@@ -1,12 +1,16 @@
+import { useEffect } from "react";
 import RqQuotes from "../../RQ/RqQuotes";
 
-const WellnessInsights = () => {
+const WellnessInsights = ({ setIsLoading }) => {
   const { data, isLoading } = RqQuotes();
+
+  useEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading]);
 
   return (
     <div className="page-container">
       <div className="title">Wellness Insights</div>
-      {isLoading && <p>Loading...</p>}
       {data ? (
         data.map((quote) => (
           <div key={quote.id}>

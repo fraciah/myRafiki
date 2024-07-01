@@ -1,7 +1,7 @@
 import useAuth from "../../../hooks/useAuth";
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useSingleFetch from "../../../hooks/useSingleFetch";
 import { deleteDoc, doc } from "firebase/firestore";
@@ -11,11 +11,11 @@ import { BadgeCheck, MessageCircle, SquarePen, Trash2 } from "lucide-react";
 import Insight from "../../../modals/Insight";
 import ConfirmDel from "../../../modals/ConfirmDel";
 
-const ViewStory = () => {
+const ViewStory = ({ setIsLoading }) => {
   const { user } = useAuth();
-  const { data, loading } = useFetch("stories");
+  const { data: stories, loading: storiesLoading } = useFetch("stories");
   const { id } = useParams();
-  const { data: users } = useFetch("users");
+  const { data: users, loading: usersLoading } = useFetch("users");
   const { data: insights, loading:insightsLoading } = useSingleFetch("stories", id, "insights");
   const [showInsight, setShowInsight] = useState(false); 
   const [showModal, setShowModal] = useState(false);
@@ -23,7 +23,7 @@ const ViewStory = () => {
   const [insightId, setInsightId] = useState(null); 
   const [initialInsightText, setInitialInsightText] = useState(""); 
   const navigate = useNavigate();
-  const story = data && data.find(story => story.id === id);
+  const story = stories && stories.find(story => story.id === id);
   
   const removeInsight = async(insightId) =>{
     try{
@@ -35,6 +35,10 @@ const ViewStory = () => {
       setError(error.message);
     }
   };
+
+  useEffect(() => {
+    setIsLoading(storiesLoading || usersLoading || insightsLoading);
+  }, [storiesLoading, usersLoading, insightsLoading]);
 
   return (
     <div>

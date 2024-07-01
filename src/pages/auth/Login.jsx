@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const [ error, setError ] = useState("");
 
   const navigate = useNavigate();
@@ -16,18 +17,19 @@ const Login = () => {
 
   const onLogin = async(userData) => {
     try {
+      setLoading(true);
       const userCredential = await signInWithEmailAndPassword(auth, userData.email, userData.password);
       const user = userCredential.user;
       localStorage.setItem("token", user.accessToken);
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("isLoggedIn", "true");
+      setLoading(false);
       navigate("/mystories");
     } 
     catch (error) {
-      console.log(error);
-      console.log(error.code);
       if(error.code === "auth/invalid-credential" || error.code === "auth/invalid-email"){
         setError("Please enter the correct email and/or password")
+        setLoading(false);
       }
       else {
         setError("An error occurred. Please try again later.");
@@ -63,7 +65,9 @@ const Login = () => {
                 />
         </div>
         <div className="auth-btn-container">
-          <button className="btn">Login</button>
+          <button className="btn">
+            {loading ? "Loading..." : "Login"}
+          </button>
           <div onClick={() => navigate("/reset-password")} className="forgot-password">Forgot Password</div>
         </div>
         <div className="redirect-auth">

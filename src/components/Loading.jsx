@@ -1,4 +1,5 @@
 import { Loader } from "lucide-react";
+import PropTypes from "prop-types";
 
 const Loading = ({ isLoading }) => {
   return (
@@ -8,6 +9,10 @@ const Loading = ({ isLoading }) => {
       </div>
     </div>
   )
-}
+};
+
+Loading.propTypes = {
+  isLoading: PropTypes.bool
+};
 
 export default Loading;

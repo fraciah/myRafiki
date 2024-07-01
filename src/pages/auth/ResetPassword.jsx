@@ -6,10 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
   const { register, formState: {errors}, handleSubmit } = useForm();
-  const [ error, setError ] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [ error, setError ] = useState("");
 
   const handleReset = (formData) => {
+    setLoading(true);
     sendPasswordResetEmail(auth, formData.email)
       .then(() => {
         alert("Password reset email sent to your email");
@@ -18,6 +20,7 @@ const ResetPassword = () => {
       .catch((error) => {
         setError(error.message);
       });
+    setLoading(false);
   };
 
   return (
@@ -38,7 +41,9 @@ const ResetPassword = () => {
           placeholder="Enter your email"
         />
       </div>
-      <button type="submit" className="btn">Reset</button>
+      <button type="submit" className="btn">
+        {loading ? "Sending..." : "Send reset email"}
+      </button>
     </form>
   )
 }

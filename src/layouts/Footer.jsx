@@ -4,7 +4,6 @@ import { Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   
   return (
     <footer>

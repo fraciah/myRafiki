@@ -8,7 +8,7 @@ import { db } from '../../../firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 import DOMPurify from 'dompurify';
 
-const EditStory = () => {
+const EditStory = ({ setIsLoading }) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { data, loading: storiesLoading } = useFetch("stories");
@@ -24,6 +24,10 @@ const EditStory = () => {
             setStory(updateStory.story);
         }
     }, [updateStory]);
+
+    useEffect(() => {
+        setIsLoading(storiesLoading);
+    }, [storiesLoading]);
 
     const sanitizeAndStripTags = (html) => {
         const cleanHtml = DOMPurify.sanitize(html);

@@ -8,11 +8,13 @@ import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm();
+    const [loading, setLoading] = useState(false);
     const [ error, setError ] = useState("");
     const navigate = useNavigate();
 
     const onRegister = async(userData) => {
         try {
+            setLoading(true);
             const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password);
             const user = userCredential.user;
             // localStorage.setItem("token", user.accessToken);
@@ -25,6 +27,7 @@ const Register = () => {
                 username: userData.username,
                 is_verified: false,
             });
+            setLoading(false);
             navigate("/login");
         } 
         catch (error) {
@@ -38,8 +41,9 @@ const Register = () => {
             }
             else{
                 console.log("!register",error);
-                setError(error);
+                setError(error.code);
             }
+            setLoading(false);
         }
     }
 
@@ -90,7 +94,9 @@ const Register = () => {
                 />
             </div>
             
-            <button className="register btn">Register</button>
+            <button className="register btn">
+                {loading ? "Loading..." : "Register"}
+            </button>
                
             <div className="redirect-auth">
                 <p>Already registered? <span onClick={() => navigate("/login")}>Login here</span></p>
