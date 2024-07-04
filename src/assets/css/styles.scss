@@ -120,22 +120,28 @@ $gray: #BBBBBB;
 }
 
 .home {
+    height: 80vh;
+
     .carousel {
         max-width: 100%;
+        height: 100%;
 
         .carousel-item {
             position: relative;
             transition: all 200ms ease-in-out;
+            height: 100%;
 
             .img-holder {
-                // height: 526px;
-                height: 70vh;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
 
                 img {
                     width: 100%;
                     height: 100%;
                     filter: brightness(50%);
                     object-fit: cover;
+                    display: block;
                 }
             }
 
@@ -229,7 +235,7 @@ $gray: #BBBBBB;
 
 .auth-container {
     background-image: url("../images/auth.jpg");
-    min-height: 600px;
+    min-height: calc(100vh - 200px);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -243,7 +249,7 @@ $gray: #BBBBBB;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        width: 50%;
+        width: 60%;
         background-color: rgba(255, 255, 255, 0.8);
 
         .reg-title {
@@ -577,6 +583,9 @@ $gray: #BBBBBB;
 }
 
 footer{
+    display: flex;
+    align-items: center;
+    min-height: 200px;
     bottom: 0;
     width: 100%;
     padding: 1rem 0;
@@ -588,6 +597,7 @@ footer{
     }
     
     .footer-content {
+        min-height: 100%;
         margin: 0 auto;
         width: 80%;
         display: flex;
@@ -681,10 +691,6 @@ footer{
     .reset-input {
         width: 70%;
     }
-
-    // .footer-content-top{
-    //     background-color: red;
-    // }
 }
 
 @media screen and (max-width: 728px) {
@@ -728,6 +734,10 @@ footer{
             .carousel-item {
                 .carousel-item-content {
                     width: 80%;
+
+                    .desc {
+                        font-size: 2.5rem;
+                    }
                 }
             }
         }
@@ -770,11 +780,6 @@ footer{
     }
 
 @media screen and (max-width: 650px) {
-    // .btn {
-    //     font-size: 0.8rem;
-    //     padding: 0.3rem 0.6rem;
-    // }
-
     .home {
         .carousel {
             .carousel-item {
@@ -783,7 +788,7 @@ footer{
                     width: 90%;
 
                     .desc {
-                        font-size: 2.5rem;
+                        font-size: 2.3rem;
                     }
                 }
             }
@@ -889,6 +894,7 @@ footer{
             .carousel-item {
                 .carousel-item-content {
                     width: 100%;
+                    margin-left: 0.2rem;
 
                     .desc {
                         font-size: 2rem;
@@ -912,7 +918,6 @@ footer{
     }
 
     .quick-links {
-        // background-color: green;
         flex-direction: column;
         align-items: center;
     }

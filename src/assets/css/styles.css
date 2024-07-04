@@ -100,15 +100,22 @@
   color: rgb(164, 164, 232);
 }
 
+.home {
+  height: 80vh;
+}
 .home .carousel {
   max-width: 100%;
+  height: 100%;
 }
 .home .carousel .carousel-item {
   position: relative;
   transition: all 200ms ease-in-out;
+  height: 100%;
 }
 .home .carousel .carousel-item .img-holder {
-  height: 70vh;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 .home .carousel .carousel-item .img-holder img {
   width: 100%;
@@ -116,6 +123,7 @@
   filter: brightness(50%);
   -o-object-fit: cover;
      object-fit: cover;
+  display: block;
 }
 .home .carousel .carousel-item .carousel-item-content {
   display: flex;
@@ -195,7 +203,7 @@
 
 .auth-container {
   background-image: url("../images/auth.jpg");
-  min-height: 600px;
+  min-height: calc(100vh - 200px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -209,7 +217,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 50%;
+  width: 60%;
   background-color: rgba(255, 255, 255, 0.8);
 }
 .auth-container .form .reg-title {
@@ -497,6 +505,9 @@
 }
 
 footer {
+  display: flex;
+  align-items: center;
+  min-height: 200px;
   bottom: 0;
   width: 100%;
   padding: 1rem 0;
@@ -507,6 +518,7 @@ footer a {
   text-decoration: none;
 }
 footer .footer-content {
+  min-height: 100%;
   margin: 0 auto;
   width: 80%;
   display: flex;
@@ -608,6 +620,9 @@ footer .footer-content .tag {
   .home .carousel .carousel-item .carousel-item-content {
     width: 80%;
   }
+  .home .carousel .carousel-item .carousel-item-content .desc {
+    font-size: 2.5rem;
+  }
   .page-container {
     margin-top: 0.5rem;
   }
@@ -637,7 +652,7 @@ footer .footer-content .tag {
     width: 90%;
   }
   .home .carousel .carousel-item .carousel-item-content .desc {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
   .auth-container .form {
     width: 90%;
@@ -702,6 +717,7 @@ footer .footer-content .tag {
 @media screen and (max-width: 350px) {
   .home .carousel .carousel-item .carousel-item-content {
     width: 100%;
+    margin-left: 0.2rem;
   }
   .home .carousel .carousel-item .carousel-item-content .desc {
     font-size: 2rem;
